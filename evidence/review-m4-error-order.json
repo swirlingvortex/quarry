@@ -1,0 +1,240 @@
+{
+  "binary_sha256": "2b3dd652f8dedb94866a15cd7a755885e4e5f141821466360d59fbbac64e4336",
+  "binary_unchanged": true,
+  "checks": [
+    {
+      "case": "numeric_first",
+      "catalog": "build/review-m4/numeric_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "scalar",
+      "batch_size": 1024,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "numeric_first",
+      "catalog": "build/review-m4/numeric_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 1,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "numeric_first",
+      "catalog": "build/review-m4/numeric_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 7,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "numeric_first",
+      "catalog": "build/review-m4/numeric_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 256,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "numeric_first",
+      "catalog": "build/review-m4/numeric_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 1024,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "numeric_first",
+      "catalog": "build/review-m4/numeric_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 4096,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "cap_first",
+      "catalog": "build/review-m4/cap_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "scalar",
+      "batch_size": 1024,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      }
+    },
+    {
+      "case": "cap_first",
+      "catalog": "build/review-m4/cap_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 1,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      }
+    },
+    {
+      "case": "cap_first",
+      "catalog": "build/review-m4/cap_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 7,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      }
+    },
+    {
+      "case": "cap_first",
+      "catalog": "build/review-m4/cap_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 256,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      }
+    },
+    {
+      "case": "cap_first",
+      "catalog": "build/review-m4/cap_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 1024,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      }
+    },
+    {
+      "case": "cap_first",
+      "catalog": "build/review-m4/cap_first/catalog.json",
+      "sql": "SELECT k,SUM(1/n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 4096,
+      "result_limit": 1,
+      "exit": 1,
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      }
+    },
+    {
+      "case": "group_finish",
+      "catalog": "build/review-m4/group_finish/catalog.json",
+      "sql": "SELECT 1/(k-1) AS bad,SUM(n) AS total FROM items GROUP BY k",
+      "mode": "scalar",
+      "batch_size": 1024,
+      "result_limit": 100,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "group_finish",
+      "catalog": "build/review-m4/group_finish/catalog.json",
+      "sql": "SELECT 1/(k-1) AS bad,SUM(n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 1,
+      "result_limit": 100,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "case": "group_finish",
+      "catalog": "build/review-m4/group_finish/catalog.json",
+      "sql": "SELECT 1/(k-1) AS bad,SUM(n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 7,
+      "result_limit": 100,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "SUM exceeds INT64 result range"
+      }
+    },
+    {
+      "case": "group_finish",
+      "catalog": "build/review-m4/group_finish/catalog.json",
+      "sql": "SELECT 1/(k-1) AS bad,SUM(n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 256,
+      "result_limit": 100,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "SUM exceeds INT64 result range"
+      }
+    },
+    {
+      "case": "group_finish",
+      "catalog": "build/review-m4/group_finish/catalog.json",
+      "sql": "SELECT 1/(k-1) AS bad,SUM(n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 1024,
+      "result_limit": 100,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "SUM exceeds INT64 result range"
+      }
+    },
+    {
+      "case": "group_finish",
+      "catalog": "build/review-m4/group_finish/catalog.json",
+      "sql": "SELECT 1/(k-1) AS bad,SUM(n) AS total FROM items GROUP BY k",
+      "mode": "vector",
+      "batch_size": 4096,
+      "result_limit": 100,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "SUM exceeds INT64 result range"
+      }
+    }
+  ]
+}

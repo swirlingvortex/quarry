@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "source_fingerprint": "6f131209dda193afe76111c864ad74cfa05ad0ec3c31f4d03473f1d5a09a36d0",
+  "roadmap_verbatim": true,
+  "dependency_header_checksums_match": true,
+  "local_markdown_links_valid": true,
+  "git_remote_configured": false,
+  "git_status": "## No commits yet on master\n?? .gitignore\n?? AGENTS.md\n?? CMakeLists.txt\n?? CMakePresets.json\n?? README.md\n?? dependencies.lock.json\n?? docs/\n?? evidence/\n?? examples/\n?? include/\n?? pytest.ini\n?? requirements-dev.lock\n?? src/\n?? tests/\n?? tools/\n",
+  "known_unresolved_scoped_failures": [],
+  "deferred": "M4-M9 and extensions",
+  "checks": "Source equals final core and Release fingerprints; plan byte comparison; pinned header SHA256; local links; Git inventory"
+}

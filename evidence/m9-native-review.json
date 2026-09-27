@@ -1,0 +1,41 @@
+{
+  "reviewed_utc": "2026-09-20T06:22:35.691093+00:00",
+  "scope": "M7-M9 native ownership, benchmark phase boundaries, clean build/runtime procedure",
+  "findings": [
+    {
+      "id": "prepared-phase-identity",
+      "location": "src/cli/bench.cpp",
+      "finding": "Prepared resident_ns originally included a clock gap excluded from planning_ns=0 and execution_ns.",
+      "fix": "Prepared ready is start, so resident_ns equals execution_ns; resident planning plus execution sums exactly.",
+      "status": "FIXED; final regression/gates pending"
+    },
+    {
+      "id": "resident-validation-path",
+      "location": "src/cli/bench.cpp",
+      "finding": "Resident validation used Engine::query while timing used fresh Engine::prepare plus execute.",
+      "fix": "Both validation and measurement now use fresh prepare plus execute with the same owning sink.",
+      "status": "FIXED; final regression/gates pending"
+    }
+  ],
+  "ownership_review": [
+    "Prepared AST destroyed before its retained Memory owner; weak catalog identity prevents stale catalog execution.",
+    "All bound descriptor/read state reset at execution start; Result and fresh operators independent across trials.",
+    "Failed load preserves catalog token and previous prepared plan; successful load invalidates old plan.",
+    "Engine is single-threaded; prepared plan execution does not promise concurrent safety."
+  ],
+  "fairness_review": [
+    "Same column storage, physical right hash join, owning result sink and baseline counters; optional profiling disabled.",
+    "Full validation results precede timings; no digest-only correctness.",
+    "Result and temporary resident-plan destruction occur outside stated timing; this is disclosed.",
+    "Warmup and recorded trials interleave via saved seeded Fisher-Yates schedule; all repeats retained.",
+    "Engine-lifetime accounted peaks include prior trials and retained prepared plans, not isolated per-query memory/RSS."
+  ],
+  "limitations": [
+    "Bounded deterministic mutation fuzzing is not coverage-guided fuzzing.",
+    "Injected allocation failures cover PMR accounted allocations, not all process allocations.",
+    "Linux and hosted macOS CI jobs are configured but have not run.",
+    "macOS LeakSanitizer unsupported; ASan/UBSan final gates remain required."
+  ],
+  "final_acceptance": "CORE_VERIFIED_LOCAL; evidence/m9-final-gate-v2.json, evidence/m9-clean-check-v2.json, evidence/m8-final-study.json",
+  "final_findings_validation": "Both native timing findings passed protocol regressions under Debug/Release/ASan+UBSan and both complete final profiles"
+}

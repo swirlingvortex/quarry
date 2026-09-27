@@ -1,0 +1,10 @@
+{
+  "doctest.h": {
+    "url": "https://raw.githubusercontent.com/doctest/doctest/v2.4.11/doctest/doctest.h",
+    "sha256": "44faa038e9c3f9728efbda143748d01124ea0a27f4bf78f35a15d8fab2e039fb"
+  },
+  "json.hpp": {
+    "url": "https://raw.githubusercontent.com/nlohmann/json/v3.11.3/single_include/nlohmann/json.hpp",
+    "sha256": "9bea4c8066ef4a1c206b2be5a36302f8926f7fdc6087af5d20b417d0cf103ea6"
+  }
+}

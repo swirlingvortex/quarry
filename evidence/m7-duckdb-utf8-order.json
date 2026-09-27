@@ -1,0 +1,91 @@
+{
+  "duckdb": "1.2.2",
+  "platform": "macOS-15.7.1-arm64-arm-64bit",
+  "schema": [
+    {
+      "name": "s",
+      "type": "STRING"
+    }
+  ],
+  "rows": [
+    [
+      "comma,value"
+    ],
+    [
+      "東京"
+    ]
+  ],
+  "sql": "SELECT s FROM items ORDER BY s ASC",
+  "hand_expected": [
+    [
+      "comma,value"
+    ],
+    [
+      "東京"
+    ]
+  ],
+  "observations": [
+    {
+      "setting": "default",
+      "result": [
+        [
+          "東京"
+        ],
+        [
+          "comma,value"
+        ]
+      ],
+      "matches_hand_expected": false
+    },
+    {
+      "setting": "SET disabled_optimizers='top_n'",
+      "result": [
+        [
+          "東京"
+        ],
+        [
+          "comma,value"
+        ]
+      ],
+      "matches_hand_expected": false
+    },
+    {
+      "setting": "PRAGMA disable_optimizer",
+      "result": [
+        [
+          "comma,value"
+        ],
+        [
+          "東京"
+        ]
+      ],
+      "matches_hand_expected": true
+    },
+    {
+      "setting": "PRAGMA enable_optimizer",
+      "result": [
+        [
+          "東京"
+        ],
+        [
+          "comma,value"
+        ]
+      ],
+      "matches_hand_expected": false
+    },
+    {
+      "setting": "SET disabled_optimizers='compressed_materialization'",
+      "result": [
+        [
+          "comma,value"
+        ],
+        [
+          "東京"
+        ]
+      ],
+      "matches_hand_expected": true
+    }
+  ],
+  "adopted_oracle_setting": "SET disabled_optimizers='compressed_materialization'",
+  "note": "The same SQL is executed against independently typed inputs. No SQL rewrite or output post-sort is used. The raw bug is observed on this host; regression requires the guarded hand-expected ordering on every platform."
+}

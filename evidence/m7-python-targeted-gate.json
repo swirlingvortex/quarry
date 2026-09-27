@@ -1,0 +1,31 @@
+{
+  "kind": "targeted diagnostic gate, not final frozen-source core",
+  "command": "QUARRY_TEST_PROFILE=core QUARRY_CASE_RECEIPTS=build/m7-guarded-cases-executed.jsonl .venv/bin/python -m pytest -q tests/differential/test_comparator.py tests/differential/test_corpus.py tests/differential/test_generated.py tests/differential/test_joins.py tests/differential/test_oracle_settings.py tests/integration/test_adversarial_sessions.py tests/fuzz",
+  "exit_code": 0,
+  "python_tests_passed": 1139,
+  "reported_seconds": 87.67,
+  "log": "evidence/m7-python-guarded.log",
+  "binary": "build/debug/quarry",
+  "binary_sha256": "65a2cbcd0d425d1b38c90e89fa4abd126bc2296f9e714a4ea64c3e8c9d19c183",
+  "distinct_seeded_cases": 1008,
+  "single_table_cases": 768,
+  "join_cases": 240,
+  "configurations_per_case": 20,
+  "successful_case_configuration_comparisons": 20160,
+  "case_manifest": "build/m7-targeted-case-content.jsonl",
+  "case_manifest_sha256": "14cc04cd91c3d0bbfa002e8d638c42cacf83cca85760d18bc72d752f6b9819ce",
+  "executed_receipts": "build/m7-guarded-cases-executed.jsonl",
+  "executed_receipts_sha256": "0341ee1604a0570a2d22b5d748ca923ec34a63dadbf2110dc092736a60c4454c",
+  "all_executed_identities_match_manifest": true,
+  "oracle_settings": {
+    "threads": 1,
+    "default_null_order": "NULLS_LAST",
+    "disabled_optimizers": "compressed_materialization"
+  },
+  "oracle_guard_evidence": "evidence/m7-duckdb-utf8-order.json",
+  "native_mutation_tests": "Owned and run separately by primary agent; not counted in this Python run",
+  "notes": [
+    "Final Debug/Release/ASan core profile remains pending coordinated source freeze.",
+    "CI configured for Linux/macOS; remote execution has not been observed."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "verdict": "CORE_VERIFIED_LOCAL",
+  "completed_utc": "2026-09-20T07:03:13.704254+00:00",
+  "completed_milestones": "M0-M9",
+  "source_sha256": "993bef547cee6f56657330eafcd606b4c8d535760e9e97e04bd4242e4bc1b553",
+  "binary_sha256": {
+    "debug": "ec2e2e54c508730576abcc45e3d3cf5b73f6c06da7cc43d8554fdb20e5bf290d",
+    "release": "4bb67a95d79b66d09811158e0cce9d3a4411b21dc5e32bc43687f9b2e0ede9ad",
+    "sanitize": "4cc2b120d7c397a739fb31c47d9d6e881c3f6f4f97febb4436585b3aa74fd162"
+  },
+  "final_commands": [
+    {
+      "command": [
+        "build/debug/quarry",
+        "demo"
+      ],
+      "exit_code": 0,
+      "log": "evidence/m9-final-demo.log",
+      "output_sha256": "140db95aa1636b9aa4c79ed27ceb204390d008295d2da61a4a302b7987b6a48c"
+    },
+    {
+      "command": [
+        "build/debug/quarry",
+        "explain",
+        "--catalog",
+        "examples/catalog.json",
+        "--sql-file",
+        "examples/query.sql",
+        "--engine",
+        "vector",
+        "--optimizer",
+        "on",
+        "--analyze"
+      ],
+      "exit_code": 0,
+      "log": "evidence/m9-final-explain.log",
+      "output_sha256": "67cabe7541ae0651b2bb4e7e2b099e39bcb975690207e44a18aab0c089899748"
+    }
+  ],
+  "relative_markdown_links": {
+    "checked": 24,
+    "missing": [],
+    "scope": "README and docs Markdown file targets; external URLs/anchors not checked"
+  },
+  "source_matches_final_gate": true,
+  "binaries_match_final_gate": true,
+  "generated_reports_still_byte_identical": true,
+  "git": {
+    "status_short": "?? .github/\n?? .gitignore\n?? AGENTS.md\n?? CMakeLists.txt\n?? CMakePresets.json\n?? README.md\n?? benchmarks/\n?? dependencies.lock.json\n?? docs/\n?? evidence/\n?? examples/\n?? include/\n?? pytest.ini\n?? requirements-dev.lock\n?? src/\n?? tests/\n?? tools/\n",
+    "remotes": "",
+    "head_exists": false,
+    "local_uncommitted": true
+  },
+  "evidence": [
+    "evidence/m9-final-gate-v2.json",
+    "evidence/m9-clean-check-v2.json",
+    "evidence/m8-final-study.json",
+    "evidence/m9-semantics-review.json",
+    "evidence/m9-native-review.json",
+    "evidence/m9-process-guard.json"
+  ],
+  "exclusions": {
+    "macos_leak_sanitizer": "unsupported",
+    "linux_and_hosted_macos_ci": "configured, not observed",
+    "extended_2016_case_profile": "not run",
+    "million_row_profile": "disabled",
+    "external_performance_comparison": "not implemented by authorization"
+  },
+  "unresolved_required_local_failures": [],
+  "next_action": "Stop at M9; any extension requires separate authorization."
+}

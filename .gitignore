@@ -1,0 +1,10 @@
+/.venv/
+/.deps/
+/build/
+/data/
+/reports/
+/evidence/*.log
+__pycache__/
+.pytest_cache/
+.hypothesis/
+.DS_Store

@@ -1,0 +1,124 @@
+{
+  "binary_sha256": "8942c2ac0680456771486740584a9f02fc69226796046f076be329b7bf3895a3",
+  "binary_unchanged": true,
+  "catalog": "build/review-m5-multiplicity/catalog.json",
+  "queries": [
+    "SELECT l.id AS lid,r.id AS rid FROM l INNER JOIN r ON r.k=l.k AND l.b=r.b AND r.s=l.s ORDER BY lid,rid",
+    "SELECT COUNT(*) AS rows,COUNT(CAST(r.id AS DOUBLE)) AS cast_count,SUM(r.id) AS total,MIN(r.s) AS lo,MAX(r.b) AS hi FROM l INNER JOIN r ON l.k=r.k AND l.b=r.b AND l.s=r.s"
+  ],
+  "independent_nested_loop_rows": 10002,
+  "checks": [
+    {
+      "mode": "scalar",
+      "batch_size": 1024,
+      "build_side": "left",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "scalar",
+      "batch_size": 1024,
+      "build_side": "right",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 1,
+      "build_side": "left",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 1,
+      "build_side": "right",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 7,
+      "build_side": "left",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 7,
+      "build_side": "right",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 256,
+      "build_side": "left",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 256,
+      "build_side": "right",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 1024,
+      "build_side": "left",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 1024,
+      "build_side": "right",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 4096,
+      "build_side": "left",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 4096,
+      "build_side": "right",
+      "rows": 10002,
+      "pass": true
+    },
+    {
+      "mode": "scalar",
+      "batch_size": 7,
+      "build_side": "left",
+      "safe_data_aggregates": true,
+      "pass": true
+    },
+    {
+      "mode": "scalar",
+      "batch_size": 7,
+      "build_side": "right",
+      "safe_data_aggregates": true,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 7,
+      "build_side": "left",
+      "safe_data_aggregates": true,
+      "pass": true
+    },
+    {
+      "mode": "vector",
+      "batch_size": 7,
+      "build_side": "right",
+      "safe_data_aggregates": true,
+      "pass": true
+    }
+  ]
+}

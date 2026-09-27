@@ -1,0 +1,62 @@
+{
+  "scalar": {
+    "exit": 1,
+    "result": {
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      },
+      "ok": false
+    }
+  },
+  "vector-1": {
+    "exit": 1,
+    "result": {
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      },
+      "ok": false
+    }
+  },
+  "vector-7": {
+    "exit": 1,
+    "result": {
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      },
+      "ok": false
+    }
+  },
+  "vector-256": {
+    "exit": 1,
+    "result": {
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      },
+      "ok": false
+    }
+  },
+  "vector-1024": {
+    "exit": 1,
+    "result": {
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      },
+      "ok": false
+    }
+  },
+  "vector-4096": {
+    "exit": 1,
+    "result": {
+      "error": {
+        "code": "RESOURCE",
+        "message": "materialized result/group row limit exceeded"
+      },
+      "ok": false
+    }
+  }
+}

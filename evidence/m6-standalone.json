@@ -1,0 +1,32 @@
+{
+  "binary_sha256": "b065d8d4089c8184e2947b1b2a03c1d92807075047c58aa056fc7febf451c715",
+  "checks": [
+    {
+      "command": [
+        "build/release/quarry",
+        "demo"
+      ],
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "stdout": "region\torders\trevenue\n\"North\"\t34\t7680.0\n\"West\"\t33\t7446.5\nNULL\t25\t5666.25\n\"South\"\t13\t2994.75\n\"\u6771\u4eac\"\t8\t1816.25\n(5 rows)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/usr/bin/otool",
+        "-L",
+        "build/release/quarry"
+      ],
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "stdout": "build/release/quarry:\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2000.63.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)\n",
+      "stderr": ""
+    }
+  ]
+}

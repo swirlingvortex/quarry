@@ -1,0 +1,11 @@
+Command: build/debug/quarry_tests --test-case="cross-resource*,strict typed*"
+Exit code: 0
+[doctest] doctest version is "2.4.11"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:  2 |  2 passed | 0 failed | 23 skipped
+[doctest] assertions: 23 | 23 passed | 0 failed |
+[doctest] Status: SUCCESS!
+
+The 23 skipped cases were excluded by the targeted test-name filter, not skipped
+because of missing capabilities. Full-suite evidence is recorded separately.

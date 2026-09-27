@@ -1,0 +1,12 @@
+customer_id,region,segment
+1,"North","member"
+1,"West","duplicate-key"
+1,\N,"duplicate-key"
+2,"South",\N
+3,"West",""
+4,"東京","café"
+7,"North","quoted,""segment"""
+9,"South","long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-"
+50,"Unmatched","no-sales"
+51,"North","no-sales"
+\N,"Null key","must-not-match"

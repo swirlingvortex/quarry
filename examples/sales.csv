@@ -1,0 +1,109 @@
+sale_id,region,product,units,amount,promoted,note,customer_id
+1,"North","product-000",\N,\N,\N,"",1
+2,\N,"product-001",5,8.5,false,"\N",1
+3,"North","product-002",5,24.75,false,"gift, wrapped",1
+4,"West","product-003",8,75.25,true,"customer said ""thanks""",1
+5,"South","product-004",6,390.5,false,"two
+lines",2
+6,"North","product-005",8,60.75,false,"café",3
+7,"North","product-006",7,184.0,true,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",4
+8,"North","product-007",4,143.0,\N,\N,7
+9,"東京","product-008",5,399.75,false,"",9
+10,"North","product-009",3,251.5,true,"\N",99
+11,"North","product-010",6,79.5,false,"gift, wrapped",\N
+12,"North","product-011",\N,29.75,false,"customer said ""thanks""",1
+13,"North","product-012",8,120.25,true,"two
+lines",1
+14,"North","product-013",8,\N,false,"café",1
+15,\N,"product-014",4,334.25,\N,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",1
+16,"東京","product-015",8,66.25,true,\N,2
+17,"North","product-016",4,307.75,false,"",3
+18,"West","product-017",2,286.75,false,"\N",4
+19,"South","product-018",5,234.5,true,"gift, wrapped",7
+20,\N,"product-019",2,19.0,false,"customer said ""thanks""",9
+21,"東京","product-020",6,381.0,false,"two
+lines",99
+22,"West","product-021",2,182.5,\N,"café",\N
+23,"North","product-022",\N,164.75,false,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",1
+24,"North","product-023",7,215.25,false,\N,1
+25,"North","product-024",1,3.0,true,"",1
+26,"North","product-025",6,282.25,false,"\N",1
+27,"West","product-026",1,\N,false,"gift, wrapped",2
+28,"North","product-027",8,384.0,true,"customer said ""thanks""",3
+29,"West","product-028",8,373.0,\N,"two
+lines",4
+30,"North","product-029",8,330.5,false,"café",7
+31,"West","product-030",1,295.75,true,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",9
+32,"東京","product-031",7,64.0,false,\N,99
+33,"South","product-032",2,266.0,false,"",\N
+34,"North","product-033",\N,22.5,true,"\N",1
+35,"North","product-034",6,185.75,false,"gift, wrapped",1
+36,"東京","product-035",4,198.75,\N,"customer said ""thanks""",1
+37,"North","product-036",4,44.5,true,"two
+lines",1
+38,"North","product-037",8,251.25,false,"café",2
+39,"West","product-038",6,21.25,false,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",3
+40,"South","product-039",7,\N,true,\N,4
+41,"South","product-040",3,296.5,false,"",7
+42,"North","product-000",8,225.5,false,"\N",9
+43,"West","product-001",2,43.5,\N,"gift, wrapped",99
+44,"South","product-002",3,247.5,false,"customer said ""thanks""",\N
+45,"東京","product-003",\N,362.25,false,"two
+lines",1
+46,\N,"product-004",8,133.0,true,"café",1
+47,"North","product-005",7,49.25,false,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",1
+48,"North","product-006",6,216.25,false,\N,1
+49,"North","product-007",4,165.75,true,"",2
+50,\N,"product-008",6,318.0,\N,"\N",3
+51,"東京","product-009",7,96.75,false,"gift, wrapped",4
+52,"North","product-010",4,369.0,true,"customer said ""thanks""",7
+53,"South","product-011",5,\N,false,"two
+lines",9
+54,\N,"product-012",6,287.25,false,"café",99
+55,"North","product-013",7,159.0,true,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",\N
+56,"North","product-014",\N,397.25,false,\N,1
+57,"West","product-015",3,203.75,\N,"",1
+58,"North","product-016",5,271.5,true,"\N",1
+59,"North","product-017",8,181.0,false,"gift, wrapped",1
+60,"West","product-018",1,1.75,false,"customer said ""thanks""",2
+61,"North","product-019",2,101.0,true,"two
+lines",3
+62,\N,"product-020",8,112.75,false,"café",4
+63,\N,"product-021",2,57.25,false,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",7
+64,"North","product-022",8,95.5,\N,\N,9
+65,"South","product-023",7,216.75,false,"",99
+66,"South","product-024",4,\N,false,"\N",\N
+67,"東京","product-025",\N,238.75,true,"gift, wrapped",1
+68,"North","product-026",3,58.25,false,"customer said ""thanks""",1
+69,"North","product-027",6,378.75,false,"two
+lines",1
+70,"West","product-028",1,385.5,true,"café",1
+71,"South","product-029",4,279.0,\N,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",2
+72,\N,"product-030",4,76.5,false,\N,3
+73,\N,"product-031",2,71.25,true,"",4
+74,"東京","product-032",7,228.5,false,"\N",7
+75,"North","product-033",4,214.5,false,"gift, wrapped",9
+76,\N,"product-034",5,325.75,true,"customer said ""thanks""",99
+77,"West","product-035",3,207.75,false,"two
+lines",\N
+78,"North","product-036",\N,142.5,\N,"café",1
+79,\N,"product-037",6,\N,true,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",1
+80,"North","product-038",3,263.75,false,\N,1
+81,"North","product-039",7,137.25,false,"",1
+82,"North","product-040",4,202.25,true,"\N",2
+83,"North","product-000",8,309.25,false,"gift, wrapped",3
+84,"東京","product-001",8,319.0,false,"customer said ""thanks""",4
+85,"North","product-002",4,255.5,\N,"two
+lines",7
+86,"North","product-003",1,255.5,false,"café",9
+87,"West","product-004",2,372.25,false,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",99
+88,"North","product-005",1,335.0,true,\N,\N
+89,\N,"product-006",\N,191.25,false,"",1
+90,"West","product-007",3,236.25,false,"\N",1
+91,"West","product-008",5,292.5,true,"gift, wrapped",1
+92,"North","product-009",5,\N,\N,"customer said ""thanks""",1
+93,"North","product-010",7,153.25,false,"two
+lines",2
+94,"South","product-011",4,223.0,true,"café",3
+95,"West","product-012",4,372.75,false,"long:retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-retail-",4
+96,"North","product-013",1,99.0,false,\N,7

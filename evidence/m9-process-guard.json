@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "change": "Darwin ps uses ucomm basename; Linux uses comm basename",
+  "reason": "Observed Darwin comm truncates absolute paths and misses Python/quarry process classification",
+  "live_sentinel_pid": 72361,
+  "rejection": "Concurrent builds/tests/Quarry processes: [{\"pid\": 72361, \"executable\": \"python\", \"command\": \"/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -c import time; print(\\\"ready\\\", flush=True); time.sleep(5) tools/verify.py\"}]",
+  "clear_inventory_after_sentinel": "PASS",
+  "targeted_tests": 24,
+  "test_command": ".venv/bin/python -m pytest -q tests/benchmark",
+  "test_exit_code": 0,
+  "test_log": "evidence/m9-process-guard-tests.log",
+  "old_study": "reports/benchmarks/{10000,100000} retained, complete and valid under earlier fingerprint; superseded for final provenance",
+  "next": "Rerun final core/clean gates and both profiles with final tooling"
+}

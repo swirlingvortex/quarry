@@ -1,0 +1,11 @@
+{
+  "binary": "build/debug/quarry",
+  "binary_sha256": "1862c4dc4bc109fae00264eef164fbe8d15dbdda36ad5eb4797d1c1aaeeb0d13",
+  "stage": "Initial M2/M3 adversarial review before pending binder/session fixes",
+  "logs": [
+    "review-first-repros.json",
+    "review-session-depth.json",
+    "review-aggregate-order.json"
+  ],
+  "source_note": "Source was concurrently extended with C++ tests; binary SHA256 identifies the reviewed executable. Final-source verification must rerun after fixes."
+}

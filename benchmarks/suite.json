@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "name": "quarry-original-retail-v1",
+  "seed": 20092026,
+  "profiles": [10000, 100000],
+  "million_rows_enabled": false,
+  "warmups": 2,
+  "repetitions": 7,
+  "memory_limit": 536870912,
+  "result_limit": 300000,
+  "primary_batch_size": 1024,
+  "extra_batch_sizes": [256, 4096],
+  "batch_sweep_workloads": ["scan_selective", "group_high"],
+  "tracks": ["resident", "prepared"],
+  "workloads": [
+    {"id": "scan_selective", "sql_file": "queries/scan_selective.sql", "order_keys": [], "dimension": "numeric predicate bucket < 10: exactly 1% at routine sizes"},
+    {"id": "scan_broad", "sql_file": "queries/scan_broad.sql", "order_keys": [], "dimension": "numeric predicate bucket < 900: exactly 90% at routine sizes"},
+    {"id": "projection_narrow", "sql_file": "queries/projection_narrow.sql", "order_keys": [], "dimension": "two output columns from the same fourteen-column table"},
+    {"id": "projection_wide", "sql_file": "queries/projection_wide.sql", "order_keys": [], "dimension": "all fourteen output columns; owning sink/materialization cost included"},
+    {"id": "null_light", "sql_file": "queries/null_light.sql", "order_keys": [], "dimension": "10% NULL DOUBLE column"},
+    {"id": "null_heavy", "sql_file": "queries/null_heavy.sql", "order_keys": [], "dimension": "90% NULL DOUBLE column"},
+    {"id": "group_low", "sql_file": "queries/group_low.sql", "order_keys": [0], "dimension": "16 INT64 grouping keys"},
+    {"id": "group_high", "sql_file": "queries/group_high.sql", "order_keys": [0], "dimension": "2048 INT64 grouping keys"},
+    {"id": "group_string", "sql_file": "queries/group_string.sql", "order_keys": [0], "dimension": "eight UTF-8 string keys plus NULL"},
+    {"id": "sort_limit", "sql_file": "queries/sort_limit.sql", "order_keys": [1, 0], "dimension": "full materialization/sort followed by LIMIT 1000, unique id breaks ties"},
+    {"id": "join_uniform", "sql_file": "queries/join_uniform.sql", "order_keys": [0], "dimension": "uniform 256 customer keys; dimension fanout at most three"},
+    {"id": "join_skew", "sql_file": "queries/join_skew.sql", "order_keys": [0], "dimension": "80% of sales map to eight hot keys; dimension fanout at most three"}
+  ],
+  "fairness": "Same column storage, hash algorithms, right join build, owning Result sink, single thread, and disabled optional profiling. Optimizer comparisons keep the executor fixed. Batch sweeps keep other options fixed.",
+  "scope": "Original microbenchmarks, not TPC-H. No DuckDB performance comparison. Finite paired workload sweeps, not a Cartesian product. No speed targets. No measurements until coordinated source freeze."
+}

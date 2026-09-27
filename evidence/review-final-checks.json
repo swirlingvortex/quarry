@@ -1,0 +1,162 @@
+{
+  "binary_sha256": "14f3826434c7f99fef460d7318b18fdf70cb48b50caf935cbb87a6a9e7a5d4a1",
+  "query_probes": [
+    {
+      "sql": "SELECT sale_id FROM sales WHERE (units = 1) = TRUE",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "UNSUPPORTED",
+          "message": "WHERE comparisons require column or literal operands"
+        },
+        "ok": false
+      }
+    },
+    {
+      "sql": "SELECT sale_id FROM sales WHERE (promoted IS NULL) = TRUE",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "UNSUPPORTED",
+          "message": "WHERE comparisons require column or literal operands"
+        },
+        "ok": false
+      }
+    },
+    {
+      "sql": "SELECT sale_id FROM sales WHERE units = 1 AND NOT promoted ORDER BY 1",
+      "exit": 0,
+      "payload": {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          }
+        ],
+        "ok": true,
+        "rows": [
+          [
+            "27"
+          ],
+          [
+            "60"
+          ],
+          [
+            "86"
+          ],
+          [
+            "96"
+          ]
+        ],
+        "stats": {
+          "current_accounted_bytes": 23632,
+          "filtered_rows": 4,
+          "peak_accounted_bytes": 23880,
+          "process_peak_rss_bytes": 2113536,
+          "rss_scope": "process lifetime high-water mark through result JSON construction",
+          "scanned_rows": 96
+        }
+      }
+    },
+    {
+      "sql": "SELECT (NULL + NULL) = 'x' FROM sales",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "TYPE",
+          "message": "numeric NULL expression requires numeric context"
+        },
+        "ok": false
+      }
+    },
+    {
+      "sql": "SELECT NOT -NULL FROM sales",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "TYPE",
+          "message": "numeric NULL expression requires numeric context"
+        },
+        "ok": false
+      }
+    },
+    {
+      "sql": "SELECT (NULL / NULL) + 1 FROM sales",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "TYPE",
+          "message": "operands require matching types; use explicit INT64 to DOUBLE CAST"
+        },
+        "ok": false
+      }
+    },
+    {
+      "sql": "SELECT COUNT(NULL + NULL) FROM sales",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "TYPE",
+          "message": "ambiguous or nonnumeric arithmetic operand"
+        },
+        "ok": false
+      }
+    },
+    {
+      "sql": "SELECT (NULL + NULL) + 1 AS n FROM sales LIMIT 1",
+      "exit": 0,
+      "payload": {
+        "columns": [
+          {
+            "name": "n",
+            "type": "INT64"
+          }
+        ],
+        "ok": true,
+        "rows": [
+          [
+            null
+          ]
+        ],
+        "stats": {
+          "current_accounted_bytes": 27456,
+          "filtered_rows": 96,
+          "peak_accounted_bytes": 32576,
+          "process_peak_rss_bytes": 2146304,
+          "rss_scope": "process lifetime high-water mark through result JSON construction",
+          "scanned_rows": 96
+        }
+      }
+    }
+  ],
+  "ownership_compile_check": {
+    "command": [
+      "c++",
+      "-std=c++20",
+      "-Iinclude",
+      "-fsyntax-only",
+      "-x",
+      "c++",
+      "-"
+    ],
+    "source": "#include \"quarry/quarry.hpp\"\n#include <type_traits>\nstatic_assert(!std::is_move_constructible_v<quarry::Engine>);\nstatic_assert(!std::is_move_assignable_v<quarry::Engine>);\n",
+    "exit": 0,
+    "stderr": ""
+  },
+  "session_recovery": {
+    "exit": 0,
+    "oversized_depth_error": {
+      "error": {
+        "code": "RESOURCE",
+        "message": "JSON nesting exceeds 128"
+      },
+      "ok": false
+    },
+    "quoted_brackets_valid_id_echo": true,
+    "following_rows": [
+      [
+        "96"
+      ]
+    ]
+  }
+}

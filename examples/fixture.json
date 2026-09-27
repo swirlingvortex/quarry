@@ -1,0 +1,75 @@
+{
+  "generator_version": "retail-v2",
+  "seed": 19092026,
+  "rows": 96,
+  "scope": "M5 joined retail correctness/demo; no performance claims",
+  "schemas": {
+    "sales": [
+      {
+        "name": "sale_id",
+        "type": "INT64",
+        "nullable": false
+      },
+      {
+        "name": "region",
+        "type": "STRING",
+        "nullable": true
+      },
+      {
+        "name": "product",
+        "type": "STRING",
+        "nullable": false
+      },
+      {
+        "name": "units",
+        "type": "INT64",
+        "nullable": true
+      },
+      {
+        "name": "amount",
+        "type": "DOUBLE",
+        "nullable": true
+      },
+      {
+        "name": "promoted",
+        "type": "BOOL",
+        "nullable": true
+      },
+      {
+        "name": "note",
+        "type": "STRING",
+        "nullable": true
+      },
+      {
+        "name": "customer_id",
+        "type": "INT64",
+        "nullable": true
+      }
+    ],
+    "customers": [
+      {
+        "name": "customer_id",
+        "type": "INT64",
+        "nullable": true
+      },
+      {
+        "name": "region",
+        "type": "STRING",
+        "nullable": true
+      },
+      {
+        "name": "segment",
+        "type": "STRING",
+        "nullable": true
+      }
+    ]
+  },
+  "customer_rows": 11,
+  "sha256": {
+    "sales.csv": "fb9ac59ad961e16599508822c9608e870ce1c1d17c3552402ce0b8f64551c48b",
+    "customers.csv": "175477657cb46a64d3de7ec5d3ec4c574be004c27b0e1ff7fb441234497f1ed6",
+    "catalog.json": "053e00d5e47833c0cadf910087973dcc8a184b31ca80c6d00fa471e8dcf3e5bc",
+    "query.sql": "777bf8d26c5a63e270084dae2682cc0a2142fd851c3d8048b75e889b8e204350",
+    "query-single.sql": "ed86cc6bdfac06d4247f91faba3769d18e75454789211ea68c6b4cf100c979af"
+  }
+}

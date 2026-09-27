@@ -1,0 +1,303 @@
+{
+  "status": "PASS",
+  "command": ".venv/bin/python tools/verify.py --profile core",
+  "exit_code": 0,
+  "summary": "build/verification/20260920T062559.123650Z-core/summary.json",
+  "source_sha256": "9d334b2f4873ca91e6a2ec476e098da40579e45e33aaae5625adc7d242f47aaa",
+  "source_unchanged": true,
+  "binary_sha256": {
+    "debug": "ec2e2e54c508730576abcc45e3d3cf5b73f6c06da7cc43d8554fdb20e5bf290d",
+    "release": "4bb67a95d79b66d09811158e0cce9d3a4411b21dc5e32bc43687f9b2e0ede9ad",
+    "sanitize": "4cc2b120d7c397a739fb31c47d9d6e881c3f6f4f97febb4436585b3aa74fd162"
+  },
+  "python": {
+    "debug": {
+      "tests": 1376,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "release": {
+      "tests": 1376,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "sanitize": {
+      "tests": 1376,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native_per_build": {
+    "ctest_executables": 2,
+    "unit_cases": 39,
+    "assertions": 5438,
+    "sql_mutations": 512,
+    "csv_mutations": 512
+  },
+  "distinct_generated_cases": 1008,
+  "single_table_cases": 768,
+  "joined_cases": 240,
+  "configs_per_case_per_build": 20,
+  "generated_comparisons_per_build": 20160,
+  "generated_comparisons_all_builds": 60480,
+  "hypothesis_per_build": {
+    "properties": 2,
+    "observed_passing_examples_per_property": 40
+  },
+  "steps": [
+    {
+      "name": "debug-configure",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake",
+        "--preset",
+        "debug"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake --preset debug",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/01-debug-configure.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2675556249450892
+    },
+    {
+      "name": "debug-build",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake",
+        "--build",
+        "--preset",
+        "debug"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake --build --preset debug",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/02-debug-build.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 1.8308170000091195
+    },
+    {
+      "name": "debug-ctest",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/ctest",
+        "--preset",
+        "debug"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/ctest --preset debug",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/03-debug-ctest.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.738423208007589
+    },
+    {
+      "name": "python-verification",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-ra",
+        "--hypothesis-show-statistics",
+        "tests/integration",
+        "tests/differential",
+        "tests/regressions",
+        "tests/fuzz",
+        "tests/benchmark",
+        "--junitxml=/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/pytest.xml"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/python -m pytest -q -ra --hypothesis-show-statistics tests/integration tests/differential tests/regressions tests/fuzz tests/benchmark --junitxml=/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/pytest.xml",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/04-python-verification.log",
+      "environment_overrides": {
+        "QUARRY_CASE_RECEIPTS": "/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/cases-debug-executed.jsonl"
+      },
+      "status": "PASS",
+      "exit_code": 0,
+      "case_execution": {
+        "receipt_file": "build/verification/20260920T062559.123650Z-core/cases-debug-executed.jsonl",
+        "receipt_sha256": "0341ee1604a0570a2d22b5d748ca923ec34a63dadbf2110dc092736a60c4454c",
+        "distinct_cases": 1008,
+        "configuration_comparisons": 20160,
+        "identities_match_manifest": true
+      },
+      "elapsed_seconds": 123.919891375117
+    },
+    {
+      "name": "demo",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/debug/quarry",
+        "demo"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/build/debug/quarry demo",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/05-demo.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.024235042044892907
+    },
+    {
+      "name": "release-configure",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake",
+        "--preset",
+        "release"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake --preset release",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/06-release-configure.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.27074741711840034
+    },
+    {
+      "name": "release-build",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake",
+        "--build",
+        "--preset",
+        "release"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake --build --preset release",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/07-release-build.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 13.448655999964103
+    },
+    {
+      "name": "release-ctest",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/ctest",
+        "--preset",
+        "release"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/ctest --preset release",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/08-release-ctest.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.7374908339697868
+    },
+    {
+      "name": "release-python",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-ra",
+        "--hypothesis-show-statistics",
+        "tests/integration",
+        "tests/differential",
+        "tests/regressions",
+        "tests/fuzz",
+        "tests/benchmark",
+        "--junitxml=/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/pytest-release.xml"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/python -m pytest -q -ra --hypothesis-show-statistics tests/integration tests/differential tests/regressions tests/fuzz tests/benchmark --junitxml=/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/pytest-release.xml",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/09-release-python.log",
+      "environment_overrides": {
+        "QUARRY_BINARY": "/Users/goktugbas/Major_Projects/quarry/build/release/quarry",
+        "QUARRY_CASE_RECEIPTS": "/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/cases-release-executed.jsonl"
+      },
+      "status": "PASS",
+      "exit_code": 0,
+      "case_execution": {
+        "receipt_file": "build/verification/20260920T062559.123650Z-core/cases-release-executed.jsonl",
+        "receipt_sha256": "0341ee1604a0570a2d22b5d748ca923ec34a63dadbf2110dc092736a60c4454c",
+        "distinct_cases": 1008,
+        "configuration_comparisons": 20160,
+        "identities_match_manifest": true
+      },
+      "elapsed_seconds": 90.9255074581597
+    },
+    {
+      "name": "sanitize-configure",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake",
+        "--preset",
+        "sanitize"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake --preset sanitize",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/10-sanitize-configure.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2616916671395302
+    },
+    {
+      "name": "sanitize-build",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake",
+        "--build",
+        "--preset",
+        "sanitize"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/cmake --build --preset sanitize",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/11-sanitize-build.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 11.136479791020975
+    },
+    {
+      "name": "sanitize-ctest",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/ctest",
+        "--preset",
+        "sanitize"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/ctest --preset sanitize",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/12-sanitize-ctest.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 2.3283195830881596
+    },
+    {
+      "name": "sanitize-python",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-ra",
+        "--hypothesis-show-statistics",
+        "tests/integration",
+        "tests/differential",
+        "tests/regressions",
+        "tests/fuzz",
+        "tests/benchmark",
+        "--junitxml=/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/pytest-sanitize.xml"
+      ],
+      "shell_command": "/Users/goktugbas/Major_Projects/quarry/.venv/bin/python -m pytest -q -ra --hypothesis-show-statistics tests/integration tests/differential tests/regressions tests/fuzz tests/benchmark --junitxml=/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/pytest-sanitize.xml",
+      "cwd": "/Users/goktugbas/Major_Projects/quarry",
+      "log": "build/verification/20260920T062559.123650Z-core/13-sanitize-python.log",
+      "environment_overrides": {
+        "QUARRY_BINARY": "/Users/goktugbas/Major_Projects/quarry/build/sanitize/quarry",
+        "ASAN_OPTIONS": "detect_leaks=0",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+        "QUARRY_CASE_RECEIPTS": "/Users/goktugbas/Major_Projects/quarry/build/verification/20260920T062559.123650Z-core/cases-sanitize-executed.jsonl"
+      },
+      "status": "PASS",
+      "exit_code": 0,
+      "case_execution": {
+        "receipt_file": "build/verification/20260920T062559.123650Z-core/cases-sanitize-executed.jsonl",
+        "receipt_sha256": "0341ee1604a0570a2d22b5d748ca923ec34a63dadbf2110dc092736a60c4454c",
+        "distinct_cases": 1008,
+        "configuration_comparisons": 20160,
+        "identities_match_manifest": true
+      },
+      "elapsed_seconds": 357.33266433305107
+    }
+  ],
+  "leak_sanitizer": {
+    "enabled_for_sanitized_cli": false,
+    "note": "Disabled on Darwin: this host's runtime aborted with 'detect_leaks is not supported on this platform'. ASan and UBSan remain enabled."
+  },
+  "remote_ci": "configured, not run",
+  "extended_2016_case_profile": "not run; core required gate passed"
+}

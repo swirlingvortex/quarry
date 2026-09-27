@@ -1,0 +1,9 @@
+{
+  "command": ".venv/bin/python tools/verify.py --profile smoke",
+  "condition": "exclusive shared activity lock already held by this test",
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "Verification not started: a Quarry benchmark or verifier holds build/quarry-activity.lock\n",
+  "result": "PASS: verifier refused before starting any build/test",
+  "python_syntax": "parsed changed Python test/tool sources successfully"
+}

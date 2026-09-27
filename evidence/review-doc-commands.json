@@ -1,0 +1,122 @@
+{
+  "scope": "README query, EXPLAIN ANALYZE, and session commands with its two example requests",
+  "binary_sha256": "6bd9f1ea9ee50832c69fbf5d4b96c2b0ad328c0812bb8aa416e71528b8bff423",
+  "checks": [
+    {
+      "command": [
+        "build/debug/quarry",
+        "query",
+        "--catalog",
+        "examples/catalog.json",
+        "--sql-file",
+        "examples/query.sql",
+        "--format",
+        "json"
+      ],
+      "stdin": "",
+      "exit_code": 0,
+      "stderr": "",
+      "rows": [
+        [
+          [
+            "North",
+            "34",
+            7680.0
+          ],
+          [
+            "West",
+            "33",
+            7446.5
+          ],
+          [
+            null,
+            "25",
+            5666.25
+          ],
+          [
+            "South",
+            "13",
+            2994.75
+          ],
+          [
+            "\u6771\u4eac",
+            "8",
+            1816.25
+          ]
+        ]
+      ]
+    },
+    {
+      "command": [
+        "build/debug/quarry",
+        "explain",
+        "--catalog",
+        "examples/catalog.json",
+        "--sql-file",
+        "examples/query.sql",
+        "--engine",
+        "vector",
+        "--optimizer",
+        "on",
+        "--analyze"
+      ],
+      "stdin": "",
+      "exit_code": 0,
+      "stderr": "",
+      "rows": [
+        [
+          [
+            "North",
+            "34",
+            7680.0
+          ],
+          [
+            "West",
+            "33",
+            7446.5
+          ],
+          [
+            null,
+            "25",
+            5666.25
+          ],
+          [
+            "South",
+            "13",
+            2994.75
+          ],
+          [
+            "\u6771\u4eac",
+            "8",
+            1816.25
+          ]
+        ]
+      ]
+    },
+    {
+      "command": [
+        "build/debug/quarry",
+        "session",
+        "--stdio",
+        "--catalog",
+        "examples/catalog.json"
+      ],
+      "stdin": "{\"id\": 1, \"sql\": \"SELECT COUNT(*) AS rows FROM sales\"}\n{\"id\": 2, \"sql\": \"SELECT COUNT(*) AS rows FROM sales\", \"options\": {\"engine\": \"vector\", \"batch_size\": 7}}\n",
+      "exit_code": 0,
+      "stderr": "",
+      "rows": [
+        [
+          [
+            "96"
+          ]
+        ],
+        [
+          [
+            "96"
+          ]
+        ]
+      ]
+    }
+  ],
+  "all_passed": true
+}

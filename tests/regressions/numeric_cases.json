@@ -1,0 +1,12 @@
+{
+  "fixture_version": "m3-numeric-v1",
+  "provenance": "Hand-computed adversarial cases; no external dataset",
+  "cases": [
+    {"sql": "SELECT 8 - 3 * 2 AS n FROM items", "rows": [[2]]},
+    {"sql": "SELECT (8 - 3) * 2 AS n FROM items", "rows": [[10]]},
+    {"sql": "SELECT 7 / 2 AS d FROM items", "rows": [[3.5]]},
+    {"sql": "SELECT -9223372036854775808 AS n FROM items", "rows": [[-9223372036854775808]]},
+    {"sql": "SELECT CAST(NULL AS BIGINT) * 9223372036854775807 AS n FROM items", "rows": [[null]]},
+    {"sql": "SELECT 0.0 - 0.0 AS d FROM items", "rows": [[0.0]]}
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "scope": "M0-M6",
+  "command": ".venv/bin/python tools/verify.py --profile core",
+  "exit_code": 0,
+  "status": "PASS",
+  "summary": "build/verification/20260920T050834.169605Z-core/summary.json",
+  "orchestration_log": "evidence/m6-final-core.log",
+  "started_utc": "20260920T050834.169605Z",
+  "finished_utc": "2026-09-20T05:24:08.460868+00:00",
+  "steps_passed": 13,
+  "source_unchanged_during_run": true,
+  "source_sha256": "78bc4040abf09ca0563499b3b25a06998eeb8767489268d209dcfda51bdbb7d4",
+  "source_after_sha256": "78bc4040abf09ca0563499b3b25a06998eeb8767489268d209dcfda51bdbb7d4",
+  "binary_sha256": {
+    "debug": "6bd9f1ea9ee50832c69fbf5d4b96c2b0ad328c0812bb8aa416e71528b8bff423",
+    "release": "b065d8d4089c8184e2947b1b2a03c1d92807075047c58aa056fc7febf451c715",
+    "sanitize": "3abad31faaccc035006747514e6743338603407b52416b181c8f998d171a8e21"
+  },
+  "builds": {
+    "debug": {
+      "python": {
+        "tests": 575,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 575
+      },
+      "pytest_reported_seconds": 136.75,
+      "junit_seconds": 136.737,
+      "python_log": "build/verification/20260920T050834.169605Z-core/04-python-verification.log",
+      "junit": "build/verification/20260920T050834.169605Z-core/pytest.xml",
+      "native": {
+        "cases": 34,
+        "passed_cases": 34,
+        "failed_cases": 0,
+        "skipped_cases": 0,
+        "assertions": 4500,
+        "passed_assertions": 4500,
+        "failed_assertions": 0
+      },
+      "native_log": "build/debug/Testing/Temporary/LastTest.log",
+      "native_summary_lines": [
+        "test cases:   34 |   34 passed | 0 failed | 0 skipped",
+        "assertions: 4500 | 4500 passed | 0 failed"
+      ],
+      "native_log_sha256": "e09997fb9d622ae1a3d4a4ad0c7fb066c992232ff07eda23ce34f4711438d760",
+      "hypothesis_observed": {
+        "tests/differential/test_properties.py::test_generated_three_valued_logic": {
+          "passing": 40,
+          "failing": 0,
+          "invalid": 4
+        },
+        "tests/differential/test_properties.py::test_generated_csv_round_trip": {
+          "passing": 40,
+          "failing": 0,
+          "invalid": 7
+        }
+      }
+    },
+    "release": {
+      "python": {
+        "tests": 575,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 575
+      },
+      "pytest_reported_seconds": 75.71,
+      "junit_seconds": 75.696,
+      "python_log": "build/verification/20260920T050834.169605Z-core/09-release-python.log",
+      "junit": "build/verification/20260920T050834.169605Z-core/pytest-release.xml",
+      "native": {
+        "cases": 34,
+        "passed_cases": 34,
+        "failed_cases": 0,
+        "skipped_cases": 0,
+        "assertions": 4500,
+        "passed_assertions": 4500,
+        "failed_assertions": 0
+      },
+      "native_log": "build/release/Testing/Temporary/LastTest.log",
+      "native_summary_lines": [
+        "test cases:   34 |   34 passed | 0 failed | 0 skipped",
+        "assertions: 4500 | 4500 passed | 0 failed"
+      ],
+      "native_log_sha256": "59a5f3626dc58016e4838f65913d31bc4e98ac2f5599f8722d2d99594b802933",
+      "hypothesis_observed": {
+        "tests/differential/test_properties.py::test_generated_three_valued_logic": {
+          "passing": 40,
+          "failing": 0,
+          "invalid": 4
+        },
+        "tests/differential/test_properties.py::test_generated_csv_round_trip": {
+          "passing": 40,
+          "failing": 0,
+          "invalid": 7
+        }
+      }
+    },
+    "sanitize": {
+      "python": {
+        "tests": 575,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 575
+      },
+      "pytest_reported_seconds": 692.97,
+      "junit_seconds": 692.959,
+      "python_log": "build/verification/20260920T050834.169605Z-core/13-sanitize-python.log",
+      "junit": "build/verification/20260920T050834.169605Z-core/pytest-sanitize.xml",
+      "native": {
+        "cases": 34,
+        "passed_cases": 34,
+        "failed_cases": 0,
+        "skipped_cases": 0,
+        "assertions": 4500,
+        "passed_assertions": 4500,
+        "failed_assertions": 0
+      },
+      "native_log": "build/sanitize/Testing/Temporary/LastTest.log",
+      "native_summary_lines": [
+        "test cases:   34 |   34 passed | 0 failed | 0 skipped",
+        "assertions: 4500 | 4500 passed | 0 failed"
+      ],
+      "native_log_sha256": "8a2bb4340e74e52ad32b9d7c1ba6461174b81f0fe0b7d31034469f76bfe42b86",
+      "hypothesis_observed": {
+        "tests/differential/test_properties.py::test_generated_three_valued_logic": {
+          "passing": 40,
+          "failing": 0,
+          "invalid": 4
+        },
+        "tests/differential/test_properties.py::test_generated_csv_round_trip": {
+          "passing": 40,
+          "failing": 0,
+          "invalid": 7
+        }
+      }
+    }
+  },
+  "differential_coverage": {
+    "distinct_single_table_seeded_cases_per_build": 240,
+    "distinct_join_seeded_cases_per_build": 72,
+    "distinct_total_seeded_cases_per_build": 312,
+    "configurations_per_seeded_case": 20,
+    "seeded_case_configuration_comparisons_per_build": 6240,
+    "vector_batch_sizes": [
+      1,
+      7,
+      256,
+      1024,
+      4096
+    ],
+    "engines": [
+      "scalar",
+      "vector"
+    ],
+    "optimizer_modes": [
+      "off",
+      "on"
+    ],
+    "isolated_rules": [
+      "prune",
+      "pushdown",
+      "fold",
+      "join-reorder"
+    ],
+    "independent_nested_loop_cases_per_build": 12,
+    "hypothesis_passing_examples_per_build": 80,
+    "hypothesis_configurations_per_example": 4,
+    "oracle": "duckdb==1.2.2",
+    "comparison": {
+      "schema_and_discrete_values": "exact",
+      "rows": "multiplicity-preserving multiset; ordered queries compare tied key groups",
+      "relative_float_tolerance": 1e-12,
+      "absolute_float_tolerance": 1e-10
+    },
+    "count_note": "The same 312 distinct seeded cases run under 20 configurations in each build. Configuration comparisons and build repetitions are not distinct query/data cases. Hypothesis invalid attempts are generation discards, not failed or skipped tests."
+  },
+  "sanitizers": {
+    "address": "PASS",
+    "undefined_behavior": "PASS",
+    "leak": {
+      "status": "UNAVAILABLE",
+      "enabled": false,
+      "reason": "This Darwin runtime does not support detect_leaks; ASAN_OPTIONS=detect_leaks=0 is explicit."
+    }
+  },
+  "sanitized_python_environment": {
+    "QUARRY_BINARY": "/Users/goktugbas/Major_Projects/quarry/build/sanitize/quarry",
+    "ASAN_OPTIONS": "detect_leaks=0",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "additional_evidence": {
+    "release_standalone_demo_and_runtime_dependencies": "evidence/m6-standalone.json",
+    "independent_optimizer_review": "evidence/review-m6-optimizer.json"
+  },
+  "unobserved_scope": [
+    "M7-M9",
+    "performance study",
+    "extended profile in this final gate"
+  ]
+}

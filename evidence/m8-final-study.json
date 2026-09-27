@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "finished_utc": "2026-09-20T07:02:28.128281+00:00",
+  "source_sha256": "993bef547cee6f56657330eafcd606b4c8d535760e9e97e04bd4242e4bc1b553",
+  "profiles": [
+    {
+      "sales_rows": 10000,
+      "directory": "reports/benchmarks/final-10000",
+      "status": "PASS",
+      "validation_case_tracks": 112,
+      "warmups": 224,
+      "recorded_trials": 784,
+      "observations": {
+        "inconclusive (IQR overlap)": 46,
+        "slower": 16,
+        "faster": 58
+      },
+      "source_sha256": "993bef547cee6f56657330eafcd606b4c8d535760e9e97e04bd4242e4bc1b553",
+      "binary_sha256": "4bb67a95d79b66d09811158e0cce9d3a4411b21dc5e32bc43687f9b2e0ede9ad",
+      "raw_sha256": "5a90d5cba2afec390e227898d3fcfee19dcbd423d63c830d8ad29cb18d7d5e4f",
+      "command": ".venv/bin/python tools/benchmark.py --manifest data/benchmarks/10000/manifest.json --output reports/benchmarks/final-10000 --measure --verification build/verification/20260920T064356.232524Z-core/summary.json",
+      "exit_code": 0
+    },
+    {
+      "sales_rows": 100000,
+      "directory": "reports/benchmarks/final-100000",
+      "status": "PASS",
+      "validation_case_tracks": 112,
+      "warmups": 224,
+      "recorded_trials": 784,
+      "observations": {
+        "inconclusive (IQR overlap)": 49,
+        "faster": 57,
+        "slower": 14
+      },
+      "source_sha256": "993bef547cee6f56657330eafcd606b4c8d535760e9e97e04bd4242e4bc1b553",
+      "binary_sha256": "4bb67a95d79b66d09811158e0cce9d3a4411b21dc5e32bc43687f9b2e0ede9ad",
+      "raw_sha256": "f28a51bb400cb7945afc2c7c971002a7402515ebe908deef846d32c8bc7549c3",
+      "command": ".venv/bin/python tools/benchmark.py --manifest data/benchmarks/100000/manifest.json --output reports/benchmarks/final-100000 --measure --verification build/verification/20260920T064356.232524Z-core/summary.json",
+      "exit_code": 0
+    }
+  ],
+  "distinct_queries": 12,
+  "profile_configurations": 112,
+  "complete_validated_case_tracks": 224,
+  "recorded_trials": 1568,
+  "warmups": 448,
+  "configuration_comparison_observations": {
+    "inconclusive (IQR overlap)": 95,
+    "slower": 30,
+    "faster": 115
+  },
+  "regeneration": [
+    {
+      "original": "docs/BENCHMARKS.md",
+      "regenerated": "build/m8-report-regenerated.md",
+      "byte_identical": true,
+      "sha256": "0912a71e77d266349add49ca055edc5f2866698047e554dc7184b3b7e327cd82"
+    },
+    {
+      "original": "evidence/m8-report.json",
+      "regenerated": "build/m8-report-regenerated.json",
+      "byte_identical": true,
+      "sha256": "3fb3afbfbd614829607cc6705c90d0755244b9732c3b0db3afba7a6c0e7cf06a"
+    }
+  ],
+  "generation_command": ".venv/bin/python tools/benchmark_report.py --runs reports/benchmarks/final-10000 reports/benchmarks/final-100000 --output docs/BENCHMARKS.md --json-output evidence/m8-report.json",
+  "regeneration_command": ".venv/bin/python tools/benchmark_report.py --runs reports/benchmarks/final-10000 reports/benchmarks/final-100000 --output build/m8-report-regenerated.md --json-output build/m8-report-regenerated.json",
+  "generation_exit_code": 0,
+  "regeneration_exit_code": 0,
+  "earlier_runs_retained": [
+    "reports/benchmarks/10000",
+    "reports/benchmarks/100000"
+  ],
+  "repeat_reason": "Process inventory portability guard corrected; repeated both complete profiles for final tooling provenance, without changing timed C++, flags, queries or datasets.",
+  "million_rows_enabled": false,
+  "external_performance_comparison": false,
+  "concurrency": "All builds/tests and clean checks completed before sequential measurements; activity lock and corrected process preflight passed."
+}

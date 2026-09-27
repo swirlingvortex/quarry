@@ -1,0 +1,56 @@
+[
+  {
+    "sql": "SELECT units + 1 AS key, SUM(sale_id) + 1 AS value FROM sales GROUP BY units ORDER BY 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"key\",\"type\":\"INT64\"},{\"name\":\"value\",\"type\":\"INT64\"}],\"ok\":true,\"rows\":[[\"2\",\"484\"],[\"3\",\"421\"],[\"4\",\"468\"],[\"5\",\"855\"],[\"6\",\"404\"],[\"7\",\"438\"],[\"8\",\"570\"],[\"9\",\"619\"],[null,\"406\"]],\"stats\":{\"current_accounted_bytes\":24688,\"filtered_rows\":96,\"peak_accounted_bytes\":27520,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT promoted, MIN(region), MAX(region), COUNT(*) FROM sales GROUP BY promoted ORDER BY promoted DESC NULLS FIRST",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"promoted\",\"type\":\"BOOL\"},{\"name\":\"min(region)\",\"type\":\"STRING\"},{\"name\":\"max(region)\",\"type\":\"STRING\"},{\"name\":\"count(*)\",\"type\":\"INT64\"}],\"ok\":true,\"rows\":[[null,\"North\",\"\u6771\u4eac\",\"14\"],[true,\"North\",\"\u6771\u4eac\",\"27\"],[false,\"North\",\"\u6771\u4eac\",\"55\"]],\"stats\":{\"current_accounted_bytes\":24016,\"filtered_rows\":96,\"peak_accounted_bytes\":25600,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT sale_id AS x, units AS x FROM sales ORDER BY x",
+    "exit": 1,
+    "stdout": "{\"error\":{\"code\":\"BIND\",\"message\":\"unknown or ambiguous ORDER BY output name: x\"},\"ok\":false}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT 1 / 0 AS invalid, COUNT(*) FROM sales WHERE FALSE",
+    "exit": 1,
+    "stdout": "{\"error\":{\"code\":\"NUMERIC\",\"message\":\"division by zero\"},\"ok\":false}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT 1 / 0 AS invalid FROM sales WHERE FALSE",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"invalid\",\"type\":\"DOUBLE\"}],\"ok\":true,\"rows\":[],\"stats\":{\"current_accounted_bytes\":23312,\"filtered_rows\":0,\"peak_accounted_bytes\":23880,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT SUM(sale_id / 0) FROM sales WHERE FALSE",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"sum((sale_id / 0))\",\"type\":\"DOUBLE\"}],\"ok\":true,\"rows\":[[null]],\"stats\":{\"current_accounted_bytes\":23392,\"filtered_rows\":0,\"peak_accounted_bytes\":23880,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT SUM(sale_id / 0) FROM sales LIMIT 0",
+    "exit": 1,
+    "stdout": "{\"error\":{\"code\":\"NUMERIC\",\"message\":\"division by zero\"},\"ok\":false}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT CAST(NULL AS BIGINT) / 0 AS yes FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"yes\",\"type\":\"DOUBLE\"}],\"ok\":true,\"rows\":[[null]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT NULL = NULL AS unknown, NULL IS NULL AS yes FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"unknown\",\"type\":\"BOOL\"},{\"name\":\"yes\",\"type\":\"BOOL\"}],\"ok\":true,\"rows\":[[null,true]],\"stats\":{\"current_accounted_bytes\":27504,\"filtered_rows\":96,\"peak_accounted_bytes\":36624,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  }
+]

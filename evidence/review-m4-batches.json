@@ -1,0 +1,280 @@
+{
+  "binary_sha256": "df5e3490d5fdfe1d4ea05b1c0b70c202b66c2bdc1606a35eaf7e77d6b8cef72a",
+  "rows": 4099,
+  "fixture_catalog": "build/review-m4/catalog.json",
+  "fixture_sha256": "aaef3e029c317150ae040582dc5676ef7de69c7e0430a806d5ff57234f5a0d52",
+  "checks": [
+    {
+      "sql": "SELECT id, s, n / 3 AS ratio, CAST(NULL AS VARCHAR) AS empty FROM items WHERE id < 4 OR id > 4092 ORDER BY id",
+      "engine": "scalar",
+      "batch_size": 1024,
+      "rows": 10,
+      "pass": true
+    },
+    {
+      "sql": "SELECT id, s, n / 3 AS ratio, CAST(NULL AS VARCHAR) AS empty FROM items WHERE id < 4 OR id > 4092 ORDER BY id",
+      "engine": "vector",
+      "batch_size": 1,
+      "rows": 10,
+      "pass": true
+    },
+    {
+      "sql": "SELECT id, s, n / 3 AS ratio, CAST(NULL AS VARCHAR) AS empty FROM items WHERE id < 4 OR id > 4092 ORDER BY id",
+      "engine": "vector",
+      "batch_size": 7,
+      "rows": 10,
+      "pass": true
+    },
+    {
+      "sql": "SELECT id, s, n / 3 AS ratio, CAST(NULL AS VARCHAR) AS empty FROM items WHERE id < 4 OR id > 4092 ORDER BY id",
+      "engine": "vector",
+      "batch_size": 256,
+      "rows": 10,
+      "pass": true
+    },
+    {
+      "sql": "SELECT id, s, n / 3 AS ratio, CAST(NULL AS VARCHAR) AS empty FROM items WHERE id < 4 OR id > 4092 ORDER BY id",
+      "engine": "vector",
+      "batch_size": 1024,
+      "rows": 10,
+      "pass": true
+    },
+    {
+      "sql": "SELECT id, s, n / 3 AS ratio, CAST(NULL AS VARCHAR) AS empty FROM items WHERE id < 4 OR id > 4092 ORDER BY id",
+      "engine": "vector",
+      "batch_size": 4096,
+      "rows": 10,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,b,MIN(s) AS lo,MAX(s) AS hi,SUM(n) AS total,AVG(d) AS mean,COUNT(*) AS rows FROM items GROUP BY k,b ORDER BY k NULLS FIRST,b NULLS LAST",
+      "engine": "scalar",
+      "batch_size": 1024,
+      "rows": 69,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,b,MIN(s) AS lo,MAX(s) AS hi,SUM(n) AS total,AVG(d) AS mean,COUNT(*) AS rows FROM items GROUP BY k,b ORDER BY k NULLS FIRST,b NULLS LAST",
+      "engine": "vector",
+      "batch_size": 1,
+      "rows": 69,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,b,MIN(s) AS lo,MAX(s) AS hi,SUM(n) AS total,AVG(d) AS mean,COUNT(*) AS rows FROM items GROUP BY k,b ORDER BY k NULLS FIRST,b NULLS LAST",
+      "engine": "vector",
+      "batch_size": 7,
+      "rows": 69,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,b,MIN(s) AS lo,MAX(s) AS hi,SUM(n) AS total,AVG(d) AS mean,COUNT(*) AS rows FROM items GROUP BY k,b ORDER BY k NULLS FIRST,b NULLS LAST",
+      "engine": "vector",
+      "batch_size": 256,
+      "rows": 69,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,b,MIN(s) AS lo,MAX(s) AS hi,SUM(n) AS total,AVG(d) AS mean,COUNT(*) AS rows FROM items GROUP BY k,b ORDER BY k NULLS FIRST,b NULLS LAST",
+      "engine": "vector",
+      "batch_size": 1024,
+      "rows": 69,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,b,MIN(s) AS lo,MAX(s) AS hi,SUM(n) AS total,AVG(d) AS mean,COUNT(*) AS rows FROM items GROUP BY k,b ORDER BY k NULLS FIRST,b NULLS LAST",
+      "engine": "vector",
+      "batch_size": 4096,
+      "rows": 69,
+      "pass": true
+    },
+    {
+      "sql": "SELECT MIN(CAST(NULL AS VARCHAR)) AS lo,MAX(CAST(NULL AS BOOLEAN)) AS hi,COUNT(NULL) AS c FROM items",
+      "engine": "scalar",
+      "batch_size": 1024,
+      "rows": 1,
+      "pass": true
+    },
+    {
+      "sql": "SELECT MIN(CAST(NULL AS VARCHAR)) AS lo,MAX(CAST(NULL AS BOOLEAN)) AS hi,COUNT(NULL) AS c FROM items",
+      "engine": "vector",
+      "batch_size": 1,
+      "rows": 1,
+      "pass": true
+    },
+    {
+      "sql": "SELECT MIN(CAST(NULL AS VARCHAR)) AS lo,MAX(CAST(NULL AS BOOLEAN)) AS hi,COUNT(NULL) AS c FROM items",
+      "engine": "vector",
+      "batch_size": 7,
+      "rows": 1,
+      "pass": true
+    },
+    {
+      "sql": "SELECT MIN(CAST(NULL AS VARCHAR)) AS lo,MAX(CAST(NULL AS BOOLEAN)) AS hi,COUNT(NULL) AS c FROM items",
+      "engine": "vector",
+      "batch_size": 256,
+      "rows": 1,
+      "pass": true
+    },
+    {
+      "sql": "SELECT MIN(CAST(NULL AS VARCHAR)) AS lo,MAX(CAST(NULL AS BOOLEAN)) AS hi,COUNT(NULL) AS c FROM items",
+      "engine": "vector",
+      "batch_size": 1024,
+      "rows": 1,
+      "pass": true
+    },
+    {
+      "sql": "SELECT MIN(CAST(NULL AS VARCHAR)) AS lo,MAX(CAST(NULL AS BOOLEAN)) AS hi,COUNT(NULL) AS c FROM items",
+      "engine": "vector",
+      "batch_size": 4096,
+      "rows": 1,
+      "pass": true
+    },
+    {
+      "sql": "SELECT s,COUNT(*) AS rows FROM items GROUP BY s ORDER BY s NULLS FIRST",
+      "engine": "scalar",
+      "batch_size": 1024,
+      "rows": 8,
+      "pass": true
+    },
+    {
+      "sql": "SELECT s,COUNT(*) AS rows FROM items GROUP BY s ORDER BY s NULLS FIRST",
+      "engine": "vector",
+      "batch_size": 1,
+      "rows": 8,
+      "pass": true
+    },
+    {
+      "sql": "SELECT s,COUNT(*) AS rows FROM items GROUP BY s ORDER BY s NULLS FIRST",
+      "engine": "vector",
+      "batch_size": 7,
+      "rows": 8,
+      "pass": true
+    },
+    {
+      "sql": "SELECT s,COUNT(*) AS rows FROM items GROUP BY s ORDER BY s NULLS FIRST",
+      "engine": "vector",
+      "batch_size": 256,
+      "rows": 8,
+      "pass": true
+    },
+    {
+      "sql": "SELECT s,COUNT(*) AS rows FROM items GROUP BY s ORDER BY s NULLS FIRST",
+      "engine": "vector",
+      "batch_size": 1024,
+      "rows": 8,
+      "pass": true
+    },
+    {
+      "sql": "SELECT s,COUNT(*) AS rows FROM items GROUP BY s ORDER BY s NULLS FIRST",
+      "engine": "vector",
+      "batch_size": 4096,
+      "rows": 8,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,MIN(s) AS lo,MAX(s) AS hi FROM items GROUP BY k ORDER BY lo NULLS LAST,k",
+      "engine": "scalar",
+      "batch_size": 1024,
+      "rows": 34,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,MIN(s) AS lo,MAX(s) AS hi FROM items GROUP BY k ORDER BY lo NULLS LAST,k",
+      "engine": "vector",
+      "batch_size": 1,
+      "rows": 34,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,MIN(s) AS lo,MAX(s) AS hi FROM items GROUP BY k ORDER BY lo NULLS LAST,k",
+      "engine": "vector",
+      "batch_size": 7,
+      "rows": 34,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,MIN(s) AS lo,MAX(s) AS hi FROM items GROUP BY k ORDER BY lo NULLS LAST,k",
+      "engine": "vector",
+      "batch_size": 256,
+      "rows": 34,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,MIN(s) AS lo,MAX(s) AS hi FROM items GROUP BY k ORDER BY lo NULLS LAST,k",
+      "engine": "vector",
+      "batch_size": 1024,
+      "rows": 34,
+      "pass": true
+    },
+    {
+      "sql": "SELECT k,MIN(s) AS lo,MAX(s) AS hi FROM items GROUP BY k ORDER BY lo NULLS LAST,k",
+      "engine": "vector",
+      "batch_size": 4096,
+      "rows": 34,
+      "pass": true
+    }
+  ],
+  "multiple_numeric_fault_diagnostics": [
+    {
+      "sql": "SELECT 1 / (n - 2) AS a, -x AS b FROM items",
+      "engine": "scalar",
+      "batch_size": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "INT64 negation overflow"
+      }
+    },
+    {
+      "sql": "SELECT 1 / (n - 2) AS a, -x AS b FROM items",
+      "engine": "vector",
+      "batch_size": 1,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "INT64 arithmetic overflow"
+      }
+    },
+    {
+      "sql": "SELECT 1 / (n - 2) AS a, -x AS b FROM items",
+      "engine": "scalar",
+      "batch_size": 7,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "INT64 negation overflow"
+      }
+    },
+    {
+      "sql": "SELECT 1 / (n - 2) AS a, -x AS b FROM items",
+      "engine": "vector",
+      "batch_size": 7,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    },
+    {
+      "sql": "SELECT 1 / (n - 2) AS a, -x AS b FROM items",
+      "engine": "scalar",
+      "batch_size": 256,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "INT64 negation overflow"
+      }
+    },
+    {
+      "sql": "SELECT 1 / (n - 2) AS a, -x AS b FROM items",
+      "engine": "vector",
+      "batch_size": 256,
+      "exit": 1,
+      "error": {
+        "code": "NUMERIC",
+        "message": "division by zero"
+      }
+    }
+  ]
+}

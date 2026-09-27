@@ -1,0 +1,151 @@
+{
+  "kind": "M9 bounded read-only semantics/ownership/oracle review",
+  "reviewed_utc": "2026-09-20T06:29:51.101614+00:00",
+  "scope": [
+    "SQL semantics",
+    "join multiplicity",
+    "optimizer safety",
+    "prepared ownership",
+    "oracle independence",
+    "benchmark fairness boundaries"
+  ],
+  "activity": "Source inspection only; no new tests, builds, benchmark measurements, or implementation edits in this review. Documentation updates were separately authorized.",
+  "conclusion": "No new engine-correctness defect identified in the bounded inspected paths. One repository-confinement finding was fixed by the primary agent; final gate validation remains separate.",
+  "checks": [
+    {
+      "area": "SQL binding and evaluation",
+      "conclusion": "The binder validates columns/types/group legality before row loops. NULL validity precedes payload arithmetic. Both execution paths apply result/group caps and preserve the documented evaluation domain before LIMIT. Numeric faults in typed vectors are consumed in row order; simultaneous independent NUMERIC diagnostics and memory-budget outcomes retain their documented limits.",
+      "references": [
+        "src/sql/sql.cpp:303",
+        "src/sql/sql.cpp:317",
+        "src/execution/scalar/executor.cpp:67",
+        "src/execution/scalar/executor.cpp:103",
+        "src/execution/vector/executor.cpp:127",
+        "src/execution/vector/executor.cpp:181",
+        "src/execution/common/aggregate.hpp:12"
+      ]
+    },
+    {
+      "area": "Join multiplicity and null keys",
+      "conclusion": "Hash keys reject any NULL component; build match vectors retain every duplicate. The cursor advances one probe match offset and resumes it across bounded batches without materializing a joined table. Stable source provenance directs payload reads.",
+      "references": [
+        "src/execution/common/join.hpp:28",
+        "src/execution/common/join.hpp:53",
+        "src/execution/common/join.hpp:58",
+        "src/execution/common/join.hpp:64"
+      ]
+    },
+    {
+      "area": "Optimizer safety",
+      "conclusion": "Only successfully evaluated literal trees fold. Pushdown requires a total entire WHERE before splitting AND terms. Pruning visits select/where/join/pushed/group dependencies. Build swaps are guarded for DOUBLE SUM/AVG and fallible expressions; smaller-side selection uses base cardinality with right-side ties.",
+      "references": [
+        "src/planner/planner.cpp:21",
+        "src/planner/planner.cpp:90",
+        "src/planner/planner.cpp:95",
+        "src/planner/planner.cpp:104",
+        "src/sql/sql.cpp:356"
+      ]
+    },
+    {
+      "area": "Prepared lifecycle and ownership",
+      "conclusion": "The plan retains its AST resource owner and weak catalog identity. Execute rejects moved-from/foreign/replaced handles before borrowed-column use. Successful catalog publication changes identity; failed loads do not. Every Runtime resets binding read counters and descriptor pointers and creates fresh views; result storage remains owned independently.",
+      "references": [
+        "include/quarry/quarry.hpp:157",
+        "src/planner/planner.cpp:116",
+        "src/planner/planner.cpp:131",
+        "src/execution/common/runtime.hpp:13",
+        "src/storage/storage.cpp:154",
+        "tests/unit/core.cpp:289",
+        "tests/unit/core.cpp:304"
+      ]
+    },
+    {
+      "area": "Oracle and corpus independence",
+      "conclusion": "DuckDB tables are created with explicit types and inserted from logical fixture values; Quarry is invoked as an independent native process. Canonical SQL/typed-data hashes exclude seed/configuration labels, deduplicate repeated empty fixtures, and are checked against per-build success receipts. The precise pinned optimizer guard executes unchanged SQL; no result post-sort hides discrepancies.",
+      "references": [
+        "tests/differential/harness.py:192",
+        "tests/differential/harness.py:254",
+        "tests/differential/corpus.py:68",
+        "tests/differential/corpus.py:94",
+        "tests/differential/test_oracle_settings.py:11",
+        "tools/verify.py:99"
+      ]
+    },
+    {
+      "area": "Benchmark validation and timed boundaries",
+      "conclusion": "Both resident and prepared validation emit complete typed results. Timed trials share algorithms/storage/right build/owning sink, use fresh execute state and seeded schedule, and exclude digest/render/output/destruction from execution while reporting rendering separately. Python validates before timing, checks matching verified Release/source fingerprints, preserves raw records, and regenerates medians/IQR/paired ratios. Review is bounded and does not establish performance results.",
+      "references": [
+        "src/cli/bench.cpp:87",
+        "src/cli/bench.cpp:92",
+        "src/cli/bench.cpp:101",
+        "tools/benchmark.py:121",
+        "tools/benchmark.py:191",
+        "tools/benchmark.py:243",
+        "tools/benchmark_report.py:16"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "M9-FUZZ-ARTIFACT-ROOT",
+      "severity": "workflow/evidence confinement",
+      "finding": "Native mutation fuzz fixtures and retained failures originally used system temp rather than Quarry build storage.",
+      "original_reference": "tests/fuzz/native.cpp:26",
+      "disposition": "Primary agent replaced the system-temp root with QUARRY_FUZZ_ARTIFACT_DIR supplied as CMAKE_BINARY_DIR/fuzz. Read inspection confirms the local-root definition and use; final gates will rebuild and verify it.",
+      "references": [
+        "CMakeLists.txt:37",
+        "tests/fuzz/native.cpp:26"
+      ],
+      "status": "implementation corrected; final dynamic verification pending"
+    },
+    {
+      "id": "M7-PINNED-ORACLE-UTF8",
+      "severity": "resolved reference-engine defect",
+      "finding": "Pinned DuckDB compressed_materialization reversed two UTF-8 string keys on the recorded host.",
+      "disposition": "Disable only that oracle optimizer; preserve identical SQL and require the hand-expected ASC/DESC ordering. Raw default behavior remains diagnostic rather than a required cross-platform failure.",
+      "evidence": "evidence/m7-duckdb-utf8-order.json",
+      "references": [
+        "tests/differential/harness.py:202",
+        "tests/differential/test_oracle_settings.py:11",
+        "tools/benchmark.py:123"
+      ],
+      "status": "corrected; targeted regression observed in evidence/m7-python-targeted-gate.json"
+    }
+  ],
+  "limitations": [
+    "Finite source review is not exhaustive semantic verification.",
+    "PMR injection covers accounted allocations on selected paths, not global/runtime allocations.",
+    "Deterministic mutation fuzzing is bounded and is not coverage-guided.",
+    "Final Debug/Release/sanitizer, clean-install, benchmark, and remote-CI acceptance must be read from primary-agent evidence; this review makes no new pass claim for them.",
+    "IQR overlap is descriptive and not a significance test; timing cannot establish SIMD/cache mechanisms or eliminate external machine noise."
+  ],
+  "reviewed_file_sha256": {
+    "CMakeLists.txt": "d11fc48a1276092dd938763590ede8e48dc7901940247ea6da0c2e6dea81571f",
+    "include/quarry/quarry.hpp": "3f16b0a49f1a13d769f94937aacf36aeef9094d3c3a66432a8baf757cc280f8c",
+    "src/cli/bench.cpp": "03ccf64c0662d5a6f61b76c5963b200c2d7287d969403cec2755a3460bebd22d",
+    "src/execution/common/aggregate.hpp": "57ae8b970ee3a46e4460e9e67a66f56c9497390e3a9a1fd86e677c21aa0c20f7",
+    "src/execution/common/join.hpp": "0c68711eff1528cc9d49242176680f301ea114e94a615b9a6a47378c962af737",
+    "src/execution/common/runtime.hpp": "a5ad84767600c0bbd7f3c77e0dad019c8914b1a77fb7d178dc75bc81bb986eec",
+    "src/execution/scalar/executor.cpp": "ba6d0f0d9d4c02e6d8c793a42b51e5ae58d7f869c5666fee16d018f374f2fa31",
+    "src/execution/vector/executor.cpp": "a6ef69618267b698feca9645c96307f2f9a5c74f6cda03a1d87129ee17fa5ebd",
+    "src/planner/planner.cpp": "44c3334fe26e8c828c84bef6ad8323617990c1b25158d8e7ad9c45c3d83460d3",
+    "src/sql/sql.cpp": "a309fc6670bf080dd366f1e9e6c8d5ce10a0bd4615d3492fcbaad695f4798c26",
+    "src/storage/storage.cpp": "0633fe7893c2488cecec85364bca2820f7ae86798b5ff715fe6bdaf91763b96a",
+    "tests/differential/corpus.py": "4db5caeeec2ad507cef9fbc0b66ceffa516bbc324bbb414c7a74d3cedc6b149f",
+    "tests/differential/harness.py": "893229dbaa0e8ef4a3c359e1ae5593c294c353181a5e9609172491bcf43da6d7",
+    "tests/differential/test_oracle_settings.py": "e2f723d5f6de1a52909d4ffb9d75b851eff0950f1c3553042345982ff2366154",
+    "tests/fuzz/native.cpp": "6051995731fddd3082f372104cf1740af0b37545b98bb9de456d5d9f93131034",
+    "tests/fuzz/test_bounded_mutations.py": "cf0f62e9baaa4bc4daf816e2ef3898608d3714479bd3a6d4909e96205bd306aa",
+    "tests/unit/core.cpp": "01c664cd8db2e0ffae276f864a81b5cf28d9b6494b441810c904f2712a4a4dbb",
+    "tools/benchmark.py": "c7011ce85ee30d22cc083566c85cc233ff8e8f5454e27f409ecd6ab2523ea780",
+    "tools/benchmark_report.py": "ca5f1f02cf55f7ea50faeb275cf88901b7becdf5d58523954d7e0db6b37bb73a",
+    "tools/verify.py": "a0ea40128ceea744b519f1927f6a5d5813cbcde554a5c791f4bed598dea44302"
+  },
+  "documentation_updated": [
+    "README.md",
+    "docs/ARCHITECTURE.md",
+    "docs/SQL_SUBSET.md",
+    "docs/LEARNING_GUIDE.md",
+    "docs/CODEX_GOALS.md"
+  ]
+}

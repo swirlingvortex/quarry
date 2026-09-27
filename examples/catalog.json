@@ -1,0 +1,71 @@
+{
+  "tables": [
+    {
+      "name": "sales",
+      "path": "sales.csv",
+      "columns": [
+        {
+          "name": "sale_id",
+          "type": "INT64",
+          "nullable": false
+        },
+        {
+          "name": "region",
+          "type": "STRING",
+          "nullable": true
+        },
+        {
+          "name": "product",
+          "type": "STRING",
+          "nullable": false
+        },
+        {
+          "name": "units",
+          "type": "INT64",
+          "nullable": true
+        },
+        {
+          "name": "amount",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "promoted",
+          "type": "BOOL",
+          "nullable": true
+        },
+        {
+          "name": "note",
+          "type": "STRING",
+          "nullable": true
+        },
+        {
+          "name": "customer_id",
+          "type": "INT64",
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "name": "customers",
+      "path": "customers.csv",
+      "columns": [
+        {
+          "name": "customer_id",
+          "type": "INT64",
+          "nullable": true
+        },
+        {
+          "name": "region",
+          "type": "STRING",
+          "nullable": true
+        },
+        {
+          "name": "segment",
+          "type": "STRING",
+          "nullable": true
+        }
+      ]
+    }
+  ]
+}

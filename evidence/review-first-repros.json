@@ -1,0 +1,56 @@
+[
+  {
+    "sql": "SELECT (NULL + NULL) = 'x' AS invalid FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"invalid\",\"type\":\"BOOL\"}],\"ok\":true,\"rows\":[[null]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT NOT -NULL AS invalid FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"invalid\",\"type\":\"BOOL\"}],\"ok\":true,\"rows\":[[null]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT (NULL / NULL) + 1 AS invalid FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"invalid\",\"type\":\"INT64\"}],\"ok\":true,\"rows\":[[null]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT (NULL / NULL) + 1.0 AS inferred FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"inferred\",\"type\":\"DOUBLE\"}],\"ok\":true,\"rows\":[[null]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT NULL IS NULL AS yes FROM sales LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"yes\",\"type\":\"BOOL\"}],\"ok\":true,\"rows\":[[true]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT COUNT(NULL) AS zero FROM sales",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"zero\",\"type\":\"INT64\"}],\"ok\":true,\"rows\":[[\"0\"]],\"stats\":{\"current_accounted_bytes\":23392,\"filtered_rows\":96,\"peak_accounted_bytes\":23880,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 FROM sales LIMIT 1",
+    "exit": 1,
+    "stdout": "{\"error\":{\"code\":\"RESOURCE\",\"message\":\"expression tree depth exceeds 128\"},\"ok\":false}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT s.sale_id FROM sales AS s LIMIT 1",
+    "exit": 0,
+    "stdout": "{\"columns\":[{\"name\":\"sale_id\",\"type\":\"INT64\"}],\"ok\":true,\"rows\":[[\"1\"]],\"stats\":{\"current_accounted_bytes\":27456,\"filtered_rows\":96,\"peak_accounted_bytes\":32576,\"scanned_rows\":96}}\n",
+    "stderr": ""
+  },
+  {
+    "sql": "SELECT sales.sale_id FROM sales AS s LIMIT 1",
+    "exit": 1,
+    "stdout": "{\"error\":{\"code\":\"BIND\",\"message\":\"unknown table qualifier: sales\"},\"ok\":false}\n",
+    "stderr": ""
+  }
+]

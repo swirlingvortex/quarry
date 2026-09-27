@@ -1,0 +1,40 @@
+{
+  "scope": "Query definitions frozen before any M8 measurements; amendments require recording and complete affected reruns",
+  "frozen_utc": "2026-09-20T06:07:51.915729+00:00",
+  "amendments": [
+    {
+      "prior_frozen_utc": "2026-09-20T06:02:59.796907+00:00",
+      "reason": "Before any timing: native subset rejects qualified ORDER BY output; joined queries use equivalent output position 1",
+      "prior_sha256": {
+        "benchmarks/queries/group_high.sql": "e0683f9fcac0449f11e05dee21ccf80dd761176a041c94ff9384b3bec3cf4fb3",
+        "benchmarks/queries/group_low.sql": "d5b8f1a82fd1d77908faccf911fb5609533f03c8c9418e8e11cd15b55f97d337",
+        "benchmarks/queries/group_string.sql": "5f698fc98cc7e481280fa24778ae34fcd36c9c1660e7ac4a35e2199d400a85b5",
+        "benchmarks/queries/join_skew.sql": "f2001f54b7d4ed7772ec7fe5f5df44d3f606f49d02daf611a675fa0c2e8ce0bc",
+        "benchmarks/queries/join_uniform.sql": "e033ab14f8213d0f6d43ac01e883617698a17d1715aa67bdadfda765f62e2660",
+        "benchmarks/queries/null_heavy.sql": "52332c897cecc4366c46b35e8b922ab7894188ffc64b44cbb484e0166f876d3f",
+        "benchmarks/queries/null_light.sql": "4e67adce5315d8e7e38952254c8802a9d9f8d8ce4ef1e8b5ef27082d67f45767",
+        "benchmarks/queries/projection_narrow.sql": "226755d9beeb0f4e6e049db596cda9fca57d16f41f797dc13308d0dbac9b66b4",
+        "benchmarks/queries/projection_wide.sql": "2ed82227a674c46b3a4a55316a8bd697f73233e5c93b8ee684dcda5121416548",
+        "benchmarks/queries/scan_broad.sql": "19370ca2b91fba62b909b222684a0209880f29d28844ed61ae5f53f29c30d337",
+        "benchmarks/queries/scan_selective.sql": "8a147962f09aa55cdc760a4dce8d21bdd7a654752fa9cbe5d7d9697a880eb895",
+        "benchmarks/queries/sort_limit.sql": "376bb1b5c0f625ae487a3da354f5891b3ea41d2bd64ea230501c67acc4519dba",
+        "benchmarks/suite.json": "53efe6c37f0b311ac0370ca619a6f65efab11d3c277135f15639be25ec68f783"
+      }
+    }
+  ],
+  "sha256": {
+    "benchmarks/queries/group_high.sql": "e0683f9fcac0449f11e05dee21ccf80dd761176a041c94ff9384b3bec3cf4fb3",
+    "benchmarks/queries/group_low.sql": "d5b8f1a82fd1d77908faccf911fb5609533f03c8c9418e8e11cd15b55f97d337",
+    "benchmarks/queries/group_string.sql": "5f698fc98cc7e481280fa24778ae34fcd36c9c1660e7ac4a35e2199d400a85b5",
+    "benchmarks/queries/join_skew.sql": "f12afc4cfdd73881c029950147df83a0078467cbb2374a6388b9738ecbef7784",
+    "benchmarks/queries/join_uniform.sql": "0a46e09f4dd737400892023494825bcaaff96431649a08abdb9c89cca627897b",
+    "benchmarks/queries/null_heavy.sql": "52332c897cecc4366c46b35e8b922ab7894188ffc64b44cbb484e0166f876d3f",
+    "benchmarks/queries/null_light.sql": "4e67adce5315d8e7e38952254c8802a9d9f8d8ce4ef1e8b5ef27082d67f45767",
+    "benchmarks/queries/projection_narrow.sql": "226755d9beeb0f4e6e049db596cda9fca57d16f41f797dc13308d0dbac9b66b4",
+    "benchmarks/queries/projection_wide.sql": "2ed82227a674c46b3a4a55316a8bd697f73233e5c93b8ee684dcda5121416548",
+    "benchmarks/queries/scan_broad.sql": "19370ca2b91fba62b909b222684a0209880f29d28844ed61ae5f53f29c30d337",
+    "benchmarks/queries/scan_selective.sql": "8a147962f09aa55cdc760a4dce8d21bdd7a654752fa9cbe5d7d9697a880eb895",
+    "benchmarks/queries/sort_limit.sql": "376bb1b5c0f625ae487a3da354f5891b3ea41d2bd64ea230501c67acc4519dba",
+    "benchmarks/suite.json": "53efe6c37f0b311ac0370ca619a6f65efab11d3c277135f15639be25ec68f783"
+  }
+}

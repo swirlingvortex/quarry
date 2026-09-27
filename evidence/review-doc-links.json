@@ -1,0 +1,62 @@
+{
+  "scope": "Final README and all top-level docs Markdown relative file targets, including finalized CHECKPOINT and VERIFICATION; fenced code omitted, remote URLs and anchors not validated",
+  "checked_links": 11,
+  "missing": [],
+  "checks": [
+    {
+      "document": "README.md",
+      "target": "docs/VERIFICATION.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/CHECKPOINT.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/SQL_SUBSET.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/LEARNING_GUIDE.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/IMPLEMENTATION_PLAN.md",
+      "exists": true
+    },
+    {
+      "document": "README.md",
+      "target": "docs/CODEX_GOALS.md",
+      "exists": true
+    },
+    {
+      "document": "docs/CHECKPOINT.md",
+      "target": "../build/verification/20260920T050834.169605Z-core/summary.json",
+      "exists": true
+    },
+    {
+      "document": "docs/CHECKPOINT.md",
+      "target": "VERIFICATION.md",
+      "exists": true
+    },
+    {
+      "document": "docs/CHECKPOINT.md",
+      "target": "CODEX_GOALS.md",
+      "exists": true
+    },
+    {
+      "document": "docs/VERIFICATION.md",
+      "target": "../build/verification/20260920T050834.169605Z-core/summary.json",
+      "exists": true
+    }
+  ]
+}

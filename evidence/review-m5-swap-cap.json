@@ -1,0 +1,55 @@
+{
+  "binary_sha256": "086c40c453a4229fba0edbdc57f92dd593648addd69100dc93c0456ef4a1ee8e",
+  "sql": "SELECT 1 / (l.id - r.id) AS ratio FROM l INNER JOIN r ON l.k = r.k",
+  "catalog": "build/review-m5-order/catalog.json",
+  "checks": [
+    {
+      "mode": "scalar",
+      "side": "right",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "RESOURCE",
+          "message": "materialized result/group row limit exceeded"
+        },
+        "ok": false
+      }
+    },
+    {
+      "mode": "scalar",
+      "side": "left",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "NUMERIC",
+          "message": "division by zero"
+        },
+        "ok": false
+      }
+    },
+    {
+      "mode": "vector",
+      "side": "right",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "RESOURCE",
+          "message": "materialized result/group row limit exceeded"
+        },
+        "ok": false
+      }
+    },
+    {
+      "mode": "vector",
+      "side": "left",
+      "exit": 1,
+      "payload": {
+        "error": {
+          "code": "NUMERIC",
+          "message": "division by zero"
+        },
+        "ok": false
+      }
+    }
+  ]
+}

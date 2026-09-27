@@ -1,0 +1,215 @@
+{
+  "status": "PASS",
+  "output": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+  "steps": [
+    {
+      "name": "bootstrap",
+      "command": [
+        "python3.12",
+        "tools/bootstrap.py"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source",
+      "environment": null,
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/bootstrap.log"
+    },
+    {
+      "name": "configure",
+      "command": [
+        ".venv/bin/cmake",
+        "--preset",
+        "release"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source",
+      "environment": null,
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/configure.log"
+    },
+    {
+      "name": "build",
+      "command": [
+        ".venv/bin/cmake",
+        "--build",
+        "--preset",
+        "release"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source",
+      "environment": null,
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/build.log"
+    },
+    {
+      "name": "native",
+      "command": [
+        ".venv/bin/ctest",
+        "--preset",
+        "release"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source",
+      "environment": null,
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/native.log"
+    },
+    {
+      "name": "install",
+      "command": [
+        ".venv/bin/cmake",
+        "--install",
+        "build/release",
+        "--prefix",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source",
+      "environment": null,
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/install.log"
+    },
+    {
+      "name": "native-core-configure",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source/.venv/lib/python3.12/site-packages/cmake/data/bin/cmake",
+        "-S",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source",
+        "-B",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/core-only",
+        "-DCMAKE_BUILD_TYPE=Release"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/native-core-configure.log"
+    },
+    {
+      "name": "native-core-build",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/source/.venv/lib/python3.12/site-packages/cmake/data/bin/cmake",
+        "--build",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/core-only",
+        "--target",
+        "quarry",
+        "quarry_core",
+        "-j",
+        "4"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/native-core-build.log"
+    },
+    {
+      "name": "native-core-demo",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/core-only/quarry",
+        "demo"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/native-core-demo.log"
+    },
+    {
+      "name": "installed-core-consumer-build",
+      "command": [
+        "/usr/bin/c++",
+        "-std=c++20",
+        "-I/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/include",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/consumer.cpp",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/lib/libquarry_core.a",
+        "-o",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/consumer"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed-core-consumer-build.log"
+    },
+    {
+      "name": "installed-core-consumer",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/consumer",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/share/quarry/examples/catalog.json"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed-core-consumer.log"
+    },
+    {
+      "name": "installed-demo",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/bin/quarry",
+        "demo"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed-demo.log"
+    },
+    {
+      "name": "installed-explain",
+      "command": [
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/bin/quarry",
+        "explain",
+        "--catalog",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/share/quarry/examples/catalog.json",
+        "--sql-file",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/share/quarry/examples/query.sql",
+        "--engine",
+        "vector",
+        "--optimizer",
+        "on",
+        "--analyze"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed-explain.log"
+    },
+    {
+      "name": "runtime-libraries",
+      "command": [
+        "/usr/bin/otool",
+        "-L",
+        "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/installed/bin/quarry"
+      ],
+      "cwd": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final",
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LC_ALL": "C"
+      },
+      "exit_code": 0,
+      "log": "/Users/goktugbas/Major_Projects/quarry/build/m9-clean-final/runtime-libraries.log"
+    }
+  ],
+  "bootstrap_header_cache": "Pinned SHA256-checked headers copied; all native build products created afresh",
+  "copied_source_unchanged": true,
+  "original_source_unchanged": true,
+  "finished_utc": "2026-09-20T06:36:58.533529+00:00",
+  "source_sha256": "9d334b2f4873ca91e6a2ec476e098da40579e45e33aaae5625adc7d242f47aaa",
+  "copied_source_file_count": 125,
+  "copied_source_inventory_sha256": "3bba9fd33c5e964f5168b06656aa55c05186cd52a2269fc3d86e353f71f91206",
+  "summary": "build/m9-clean-final/summary.json",
+  "command": ".venv/bin/python tools/clean_check.py --output build/m9-clean-final",
+  "exit_code": 0
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "depth": 128,
+    "request_bytes": 360,
+    "exit": 0,
+    "stdout_len": 628,
+    "stderr_tail": ""
+  },
+  {
+    "depth": 1000,
+    "request_bytes": 2104,
+    "exit": 0,
+    "stdout_len": 2372,
+    "stderr_tail": ""
+  },
+  {
+    "depth": 10000,
+    "request_bytes": 20104,
+    "exit": -11,
+    "stdout_len": 0,
+    "stderr_tail": ""
+  },
+  {
+    "depth": 50000,
+    "request_bytes": 100104,
+    "exit": -11,
+    "stdout_len": 0,
+    "stderr_tail": ""
+  }
+]

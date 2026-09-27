@@ -1,0 +1,507 @@
+{
+  "binary_sha256": "f7a50a75c0d7bc04d396b27f222c21b46927df4b9aebc699affb43d4951547b4",
+  "sql": "-- M3: original single-table retail example. Joins start at M5.\nSELECT region, COUNT(*) AS orders, SUM(amount) AS revenue\nFROM sales\nWHERE amount >= 50.0\nGROUP BY region\nORDER BY revenue DESC NULLS LAST, region ASC NULLS LAST\nLIMIT 10;\n",
+  "query_exit": 0,
+  "explain_exit": 0,
+  "result": {
+    "columns": [
+      {
+        "name": "region",
+        "type": "STRING"
+      },
+      {
+        "name": "orders",
+        "type": "INT64"
+      },
+      {
+        "name": "revenue",
+        "type": "DOUBLE"
+      }
+    ],
+    "ok": true,
+    "rows": [
+      [
+        "North",
+        "37",
+        7947.0
+      ],
+      [
+        "West",
+        "12",
+        3284.0
+      ],
+      [
+        "\u6771\u4eac",
+        "10",
+        2355.0
+      ],
+      [
+        "South",
+        "8",
+        2153.75
+      ],
+      [
+        null,
+        "10",
+        1907.25
+      ]
+    ],
+    "stats": {
+      "current_accounted_bytes": 24288,
+      "filtered_rows": 77,
+      "peak_accounted_bytes": 26352,
+      "process_peak_rss_bytes": 2244608,
+      "rss_scope": "process lifetime high-water mark through result JSON construction",
+      "scanned_rows": 96
+    }
+  },
+  "plan": {
+    "ok": true,
+    "optimized_logical": [
+      {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          },
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "product",
+            "type": "STRING"
+          },
+          {
+            "name": "units",
+            "type": "INT64"
+          },
+          {
+            "name": "amount",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "promoted",
+            "type": "BOOL"
+          },
+          {
+            "name": "note",
+            "type": "STRING"
+          }
+        ],
+        "engine": "scalar",
+        "id": 0,
+        "operator": "Scan"
+      },
+      {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          },
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "product",
+            "type": "STRING"
+          },
+          {
+            "name": "units",
+            "type": "INT64"
+          },
+          {
+            "name": "amount",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "promoted",
+            "type": "BOOL"
+          },
+          {
+            "name": "note",
+            "type": "STRING"
+          }
+        ],
+        "engine": "scalar",
+        "id": 1,
+        "operator": "Filter"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "count(*)",
+            "type": "INT64"
+          },
+          {
+            "name": "sum(amount)",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 2,
+        "operator": "HashAggregate"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 3,
+        "operator": "Project"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 4,
+        "operator": "Sort"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 5,
+        "operator": "Limit"
+      }
+    ],
+    "optimizer": "off",
+    "physical": [
+      {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          },
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "product",
+            "type": "STRING"
+          },
+          {
+            "name": "units",
+            "type": "INT64"
+          },
+          {
+            "name": "amount",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "promoted",
+            "type": "BOOL"
+          },
+          {
+            "name": "note",
+            "type": "STRING"
+          }
+        ],
+        "engine": "scalar",
+        "id": 0,
+        "operator": "ScalarScan"
+      },
+      {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          },
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "product",
+            "type": "STRING"
+          },
+          {
+            "name": "units",
+            "type": "INT64"
+          },
+          {
+            "name": "amount",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "promoted",
+            "type": "BOOL"
+          },
+          {
+            "name": "note",
+            "type": "STRING"
+          }
+        ],
+        "engine": "scalar",
+        "id": 1,
+        "operator": "ScalarFilter"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "count(*)",
+            "type": "INT64"
+          },
+          {
+            "name": "sum(amount)",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 2,
+        "operator": "ScalarHashAggregate"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 3,
+        "operator": "ScalarProject"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 4,
+        "operator": "ScalarSort"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 5,
+        "operator": "ScalarLimit"
+      }
+    ],
+    "unoptimized_logical": [
+      {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          },
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "product",
+            "type": "STRING"
+          },
+          {
+            "name": "units",
+            "type": "INT64"
+          },
+          {
+            "name": "amount",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "promoted",
+            "type": "BOOL"
+          },
+          {
+            "name": "note",
+            "type": "STRING"
+          }
+        ],
+        "engine": "scalar",
+        "id": 0,
+        "operator": "Scan"
+      },
+      {
+        "columns": [
+          {
+            "name": "sale_id",
+            "type": "INT64"
+          },
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "product",
+            "type": "STRING"
+          },
+          {
+            "name": "units",
+            "type": "INT64"
+          },
+          {
+            "name": "amount",
+            "type": "DOUBLE"
+          },
+          {
+            "name": "promoted",
+            "type": "BOOL"
+          },
+          {
+            "name": "note",
+            "type": "STRING"
+          }
+        ],
+        "engine": "scalar",
+        "id": 1,
+        "operator": "Filter"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "count(*)",
+            "type": "INT64"
+          },
+          {
+            "name": "sum(amount)",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 2,
+        "operator": "HashAggregate"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 3,
+        "operator": "Project"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 4,
+        "operator": "Sort"
+      },
+      {
+        "columns": [
+          {
+            "name": "region",
+            "type": "STRING"
+          },
+          {
+            "name": "orders",
+            "type": "INT64"
+          },
+          {
+            "name": "revenue",
+            "type": "DOUBLE"
+          }
+        ],
+        "engine": "scalar",
+        "id": 5,
+        "operator": "Limit"
+      }
+    ]
+  },
+  "source_review": "plan_query produces owned bound query and typed stages; compile_scalar validates order and takes stage-controlled filter/aggregate/project/sort/limit; borrowed Expr pointers remain within planned-query lifetime."
+}

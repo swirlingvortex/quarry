@@ -1,0 +1,10 @@
+{
+  "command": "generate(build/repro-generated-demo) then byte-compare four fixture artifacts",
+  "exit_code": 0,
+  "checks": {
+    "catalog.json": true,
+    "sales.csv": true,
+    "query.sql": true,
+    "fixture.json": true
+  }
+}

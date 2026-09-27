@@ -1,0 +1,28 @@
+{
+  "phase": "bounded tooling readiness; no study measurements",
+  "command": ".venv/bin/python -m pytest -q tests/benchmark --basetemp=build/benchmark-test-tmp",
+  "exit_code": 0,
+  "passed": 22,
+  "pytest_reported_seconds": 1.0,
+  "source_files_sha256": {
+    "tools/generate_benchmarks.py": "909a927ee8c0cdca1e23f6e4748c6c9e2127b0c87d0e588fbf8b2136a0fbf26c",
+    "tools/benchmark.py": "c7011ce85ee30d22cc083566c85cc233ff8e8f5454e27f409ecd6ab2523ea780",
+    "tools/benchmark_report.py": "ca5f1f02cf55f7ea50faeb275cf88901b7becdf5d58523954d7e0db6b37bb73a",
+    "tests/benchmark/test_benchmark_tools.py": "d5a773b670a1664847e1c79a8b84aa6f4b7e94d263187af0f5f6d2d7ebd3c13c"
+  },
+  "native_protocol_scope": "five sales rows, two configurations, two tracks, 2 warmups/7 repeats; tests assert protocol, never performance",
+  "data_profiles": [
+    {
+      "rows": 10000,
+      "manifest": "data/benchmarks/10000/manifest.json",
+      "cases": 56,
+      "csv_bytes": 1636542
+    },
+    {
+      "rows": 100000,
+      "manifest": "data/benchmarks/100000/manifest.json",
+      "cases": 56,
+      "csv_bytes": 16399491
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "SUPERSEDED_BY_FOUNDATIONS_RECHECK",
+  "historical_observation": "Bootstrap exit0. First Debug build exit2 due macOS floating from_chars availability. Classic-locale conversion fix; subsequent build, ctest (one bootstrap case), CLI help passed exit0. Historical per-source fingerprint not preserved; use evidence/foundations.json and final stable-tree profile for source-bound verification.",
+  "logs": [
+    "evidence/bootstrap.log",
+    "evidence/m0-configure.log",
+    "evidence/m0-build.log",
+    "evidence/m0-test.log"
+  ]
+}

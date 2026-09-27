@@ -1,0 +1,37 @@
+{
+  "time_utc": "2026-09-20T06:32:10.085746+00:00",
+  "status": "BOUNDED_PROFILES_READY; measurements await final gate and clean check",
+  "physical_memory_bytes": 17179869184,
+  "free_disk_bytes": 25754750976,
+  "profiles": [
+    {
+      "sales_rows": 10000,
+      "customer_rows": 322,
+      "csv_bytes": 1636542,
+      "maximum_join_pairs_bound": 30000,
+      "accounted_memory_limit_bytes": 536870912,
+      "result_or_group_cap": 300000,
+      "configurations": 56,
+      "tracks": [
+        "resident",
+        "prepared"
+      ]
+    },
+    {
+      "sales_rows": 100000,
+      "customer_rows": 322,
+      "csv_bytes": 16399491,
+      "maximum_join_pairs_bound": 300000,
+      "accounted_memory_limit_bytes": 536870912,
+      "result_or_group_cap": 300000,
+      "configurations": 56,
+      "tracks": [
+        "resident",
+        "prepared"
+      ]
+    }
+  ],
+  "million_rows_enabled": false,
+  "decision": "Use only finite 10k/100k profiles with 512 MiB accounted engine cap; full native/oracle validation precedes timing. No unchecked expansion. Native limit is not whole-process RSS. Host physical memory is recorded, not a claim of available free memory.",
+  "concurrency": "Cooperating activity lock and process preflight must pass immediately before each measurement."
+}
