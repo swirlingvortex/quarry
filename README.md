@@ -75,7 +75,4 @@ must support any performance conclusion.
 
 Read [SQL semantics and CSV format](docs/SQL_SUBSET.md),
 [architecture and ownership](docs/ARCHITECTURE.md), and the
-[learning guide](docs/LEARNING_GUIDE.md). The complete roadmap is preserved in
-[IMPLEMENTATION_PLAN.md](docs/IMPLEMENTATION_PLAN.md). The completed M4–M6 goal and
-the authorized M7–M9 continuation are recorded in
-[CODEX_GOALS.md](docs/CODEX_GOALS.md).
+[learning guide](docs/LEARNING_GUIDE.md).
