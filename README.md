@@ -4,10 +4,6 @@ Quarry is a single-process, single-threaded, in-memory analytical SQL engine in
 C++20. It owns its parser, binder, column storage, and scalar and batch executors. Python and
 DuckDB provide verification; neither executes Quarry queries inside the engine.
 
-M0–M6 established typed batch execution, one inner hash join, and conservative
-optimization/profiling. The authorized M7–M9 continuation adds adversarial
-verification, reusable prepared plans, native benchmark tooling, and a learning
-handoff. Work stops at M9; extensions require separate authorization.
 Quarry is an educational experiment, not production infrastructure or a claim of
 full SQL/DuckDB compatibility. See [verification](docs/VERIFICATION.md) for
 observed checks and [checkpoint](docs/CHECKPOINT.md) for the exact source state.
